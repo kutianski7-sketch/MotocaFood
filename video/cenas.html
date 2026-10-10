@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Motoca Food — Reels</title>
+<style>
+  :root {
+    --laranja: #FF6B00;
+    --amarelo: #FFC400;
+    --asfalto: #15151C;
+    --branco: #FFFFFF;
+    --verde: #00C26E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+  body { font-family: "Inter", "Inter Display", sans-serif; font-weight: 900; color: var(--branco); }
+  .emoji { font-family: "Noto Color Emoji"; font-weight: 400; }
+  #stage { position: absolute; inset: 0; overflow: hidden; }
+  .scene { position: absolute; inset: 0; opacity: 0; overflow: hidden; }
+  .a { position: absolute; will-change: transform, opacity; }
+  .center-x { left: 0; right: 0; text-align: center; }
+  .pill {
+    display: inline-block; padding: 18px 40px; border-radius: 999px;
+    font-size: 54px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .headline { font-size: 104px; line-height: 0.95; letter-spacing: -2px; text-transform: uppercase; font-style: italic; }
+  .shadow { text-shadow: 0 8px 0 rgba(0,0,0,.35); }
+
+  /* logo */
+  .logo { display: inline-flex; align-items: center; gap: 18px; background: var(--laranja);
+          padding: 22px 40px 22px 26px; border-radius: 36px; box-shadow: 0 14px 0 rgba(0,0,0,.28); }
+  .logo .roda { width: 92px; height: 92px; border-radius: 50%; background: var(--asfalto);
+                border: 10px solid var(--amarelo); position: relative; }
+  .logo .roda::after { content: ""; position: absolute; inset: 24px; border-radius: 50%; background: var(--amarelo); }
+  .logo .txt { font-style: italic; font-size: 84px; line-height: .9; letter-spacing: -2px; text-align: left; }
+  .logo .txt b { color: var(--amarelo); display: block; }
+
+  /* legenda */
+  #legenda { position: absolute; left: 60px; right: 60px; top: 1395px; text-align: center; z-index: 50; }
+  #legenda span {
+    display: inline-block; font-size: 76px; line-height: 1.04; text-transform: uppercase; letter-spacing: -1px;
+    -webkit-text-stroke: 14px #000; paint-order: stroke fill;
+    text-shadow: 0 10px 0 rgba(0,0,0,.45);
+  }
+  #legenda .hl { color: var(--amarelo); }
+
+  /* cards */
+  .card { display: flex; align-items: center; gap: 34px; background: #fff; color: var(--asfalto);
+          border-radius: 40px; padding: 26px 46px 26px 30px; box-shadow: 0 16px 0 rgba(0,0,0,.25); }
+  .card .ic { width: 150px; height: 150px; border-radius: 34px; display: grid; place-items: center; font-size: 96px; }
+  .card .t { font-size: 70px; font-style: italic; letter-spacing: -1px; text-transform: uppercase; }
+  .card .t small { display: block; font-size: 34px; font-style: normal; color: #666; letter-spacing: 0; }
+
+  .tile { width: 420px; height: 400px; background: rgba(255,255,255,.1); border: 5px solid rgba(255,255,255,.35);
+          border-radius: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+  .tile .emoji { font-size: 150px; line-height: 1; }
+  .tile .t { font-size: 50px; text-transform: uppercase; letter-spacing: 0; }
+
+  .node { width: 230px; height: 230px; border-radius: 50%; background: #fff; display: grid; place-items: center;
+          box-shadow: 0 12px 0 rgba(0,0,0,.25); }
+  .node .emoji { font-size: 120px; }
+  .badge { position: absolute; right: -24px; top: -14px; background: var(--amarelo); color: var(--asfalto);
+           font-size: 40px; padding: 8px 18px; border-radius: 22px; transform: rotate(8deg); }
+  .stamp { border: 16px solid currentColor; border-radius: 30px; padding: 6px 40px; font-size: 150px;
+           text-transform: uppercase; font-style: italic; letter-spacing: -4px; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- ============ CENA 1: abertura na rua ============ -->
+  <div class="scene" id="s1" style="background: linear-gradient(#1a1446 0%, #4b1d6b 45%, #ff6b00 100%);">
+    <svg class="a" id="s1-city" width="2400" height="1920" style="left:0;top:0"></svg>
+    <div class="a" style="left:0;right:0;top:1250px;height:670px;background:#1d1d26"></div>
+    <svg class="a" id="s1-road" width="2400" height="40" style="left:0;top:1420px"></svg>
+    <svg class="a" id="s1-lines" width="1080" height="600" style="left:0;top:820px"></svg>
+    <svg class="a moto" id="s1-moto" width="640" height="440" viewBox="0 0 640 440" style="left:0;top:880px"></svg>
+    <div class="a center-x" id="s1-t1" style="top:330px"><span class="headline shadow" style="font-size:150px">FALA,</span></div>
+    <div class="a center-x" id="s1-t2" style="top:480px"><span class="headline shadow" style="font-size:170px;color:var(--amarelo)">MOTOCAS!</span></div>
+  </div>
+
+  <!-- ============ CENA 2: chegou o app ============ -->
+  <div class="scene" id="s2" style="background: radial-gradient(circle at 50% 45%, #ff8a1f 0%, #ff6b00 45%, #c94400 100%);">
+    <svg class="a" id="s2-rays" width="2600" height="2600" viewBox="-1300 -1300 2600 2600" style="left:-760px;top:-340px"></svg>
+    <div class="a center-x" id="s2-t1" style="top:200px"><span class="pill" style="background:var(--asfalto)">Chegou o</span></div>
+    <div class="a center-x" id="s2-logo" style="top:320px"><div class="logo" style="background:var(--asfalto)"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div></div>
+    <div class="a" id="s2-phone" style="left:300px;top:560px;width:480px;height:800px;border-radius:64px;background:#111;padding:22px;box-shadow:0 30px 0 rgba(0,0,0,.25)">
+      <div style="width:100%;height:100%;border-radius:46px;background:#f4f4f6;overflow:hidden;position:relative">
+        <div style="background:var(--laranja);height:150px;display:flex;align-items:center;justify-content:center;font-size:44px;font-style:italic">MOTOCA <span style="color:var(--amarelo);margin-left:10px">FOOD</span></div>
+        <div id="s2-list" class="a" style="left:22px;right:22px;top:172px">
+        </div>
+      </div>
+    </div>
+    <div class="a" id="s2-badge" style="left:690px;top:520px;width:300px;height:300px;border-radius:50%;background:var(--amarelo);color:var(--asfalto);display:grid;place-items:center;text-align:center;font-size:56px;line-height:1;font-style:italic;box-shadow:0 14px 0 rgba(0,0,0,.25)">1º E<br>ÚNICO</div>
+    <div class="a emoji" id="s2-heart" style="left:90px;top:900px;font-size:200px">❤️</div>
+  </div>
+
+  <!-- ============ CENA 3: central de parceiros ============ -->
+  <div class="scene" id="s3" style="background: radial-gradient(circle at 50% 42%, #2c2c3a 0%, var(--asfalto) 70%);">
+    <svg class="a" id="s3-lines" width="1080" height="1920" style="left:0;top:0"></svg>
+    <div class="a center-x" id="s3-t1" style="top:150px"><span class="headline shadow" style="font-size:88px">Central de<br><span style="color:var(--amarelo)">parceiros</span></span></div>
+    <div class="a" id="s3-hub" style="left:390px;top:680px;width:300px;height:300px;border-radius:50%;background:var(--laranja);display:grid;place-items:center;box-shadow:0 0 0 22px rgba(255,107,0,.25)">
+      <div style="text-align:center;font-style:italic;font-size:62px;line-height:.9">MOTOCA<br><span style="color:var(--amarelo)">FOOD</span></div>
+    </div>
+    <div id="s3-nodes"></div>
+    <div class="a center-x" id="s3-t2" style="top:1278px"><span class="pill" style="background:var(--amarelo);color:var(--asfalto);font-size:58px">% descontos de verdade</span></div>
+  </div>
+
+  <!-- ============ CENA 4: restaurantes ============ -->
+  <div class="scene" id="s4" style="background: radial-gradient(circle at 50% 50%, #ffd640 0%, var(--amarelo) 55%, #f0a800 100%); color: var(--asfalto)">
+    <div class="a center-x" id="s4-fase" style="top:180px"><span class="pill" style="background:var(--asfalto);color:#fff">1ª fase</span></div>
+    <div class="a center-x" id="s4-t1" style="top:300px"><span class="headline" style="font-size:120px">Restaurantes</span></div>
+    <svg class="a" id="s4-plate" width="760" height="760" viewBox="-380 -380 760 760" style="left:160px;top:440px"></svg>
+    <div class="a" id="s4-almoco" style="left:60px;top:1150px"><span class="pill" style="background:#fff;font-size:56px">☀ Almoço</span></div>
+    <div class="a" id="s4-jantar" style="left:60px;top:1250px"><span class="pill" style="background:var(--asfalto);color:#fff;font-size:56px">☾ Jantar</span></div>
+    <div class="a" id="s4-preco" style="left:560px;top:1060px;width:470px;padding:22px 30px;border-radius:30px;background:var(--laranja);color:#fff;text-align:center;box-shadow:0 16px 0 rgba(0,0,0,.25)">
+      <div style="font-size:52px;line-height:1">ATÉ</div>
+      <div style="font-size:150px;line-height:.95;font-style:italic;letter-spacing:-5px">R$20</div>
+    </div>
+  </div>
+
+  <!-- ============ CENA 5: borracharia, mecânico, guincho ============ -->
+  <div class="scene" id="s5" style="background: linear-gradient(160deg, #0d3b8c 0%, #082457 100%);">
+    <div class="a center-x" id="s5-t1" style="top:180px"><span class="headline shadow">Pra sua <span style="color:var(--amarelo)">moto</span></span></div>
+    <div class="a" id="s5-c1" style="left:90px;top:420px"><div class="card"><div class="ic emoji" style="background:#ffe3cc">🛞</div><div class="t">Borracharias</div></div></div>
+    <div class="a" id="s5-c2" style="left:90px;top:680px"><div class="card"><div class="ic emoji" style="background:#fff3c4">🔧</div><div class="t">Mecânicos</div></div></div>
+    <div class="a" id="s5-c3" style="left:90px;top:940px"><div class="card"><div class="ic emoji" style="background:#d9ecff">🛻</div><div class="t">Guinchos</div></div></div>
+    <div class="a" id="s5-stamp" style="left:470px;top:1110px;color:var(--amarelo)"><div class="stamp" style="font-size:110px">Baratos</div></div>
+  </div>
+
+  <!-- ============ CENA 6: em breve ============ -->
+  <div class="scene" id="s6" style="background: linear-gradient(160deg, #3a1670 0%, #1c0b3a 100%);">
+    <div class="a" id="s6-tape" style="left:-100px;top:190px;width:1280px;height:170px;background:repeating-linear-gradient(-45deg,var(--amarelo) 0 50px,var(--asfalto) 50px 100px);display:grid;place-items:center;box-shadow:0 12px 0 rgba(0,0,0,.3)">
+      <span style="background:var(--asfalto);padding:4px 46px;font-size:110px;font-style:italic;color:var(--amarelo)">EM BREVE</span>
+    </div>
+    <div class="a tile" id="s6-g1" style="left:90px;top:440px"><div class="emoji">⛽</div><div class="t">Postos</div></div>
+    <div class="a tile" id="s6-g2" style="left:570px;top:440px"><div class="emoji">⚖️</div><div class="t">Advogados</div></div>
+    <div class="a tile" id="s6-g3" style="left:90px;top:880px"><div class="emoji">🩺</div><div class="t">Médicos</div></div>
+    <div class="a tile" id="s6-g4" style="left:570px;top:880px"><div class="emoji">🧮</div><div class="t">Contadores</div></div>
+  </div>
+
+  <!-- ============ CENA 7: agente multiplicador ============ -->
+  <div class="scene" id="s7" style="background: radial-gradient(circle at 50% 50%, #ff8a1f 0%, var(--laranja) 50%, #b83d00 100%);">
+    <svg class="a" id="s7-ripples" width="1080" height="1920" style="left:0;top:0"></svg>
+    <div class="a center-x" id="s7-t0" style="top:150px"><span class="pill" style="background:var(--asfalto)">Você, Motoca, é o</span></div>
+    <div class="a center-x" id="s7-t1" style="top:270px"><span class="headline shadow" style="font-size:110px">Agente<br><span style="color:var(--amarelo)">multiplicador</span></span></div>
+    <svg class="a" id="s7-links" width="1080" height="1920" style="left:0;top:0"></svg>
+    <div class="a" id="s7-me" style="left:400px;top:680px;width:280px;height:280px;border-radius:50%;background:var(--asfalto);display:grid;place-items:center;border:12px solid var(--amarelo)">
+      <span class="emoji" style="font-size:150px">🏍️</span>
+    </div>
+    <div class="a" id="s7-n1" style="left:60px;top:1000px;text-align:center;width:300px"><div class="node" style="margin:0 auto"><span class="emoji">🍽️</span></div><div style="font-size:40px;margin-top:14px">RESTAURANTE</div></div>
+    <div class="a" id="s7-n2" style="left:390px;top:1050px;text-align:center;width:300px"><div class="node" style="margin:0 auto"><span class="emoji">🛞</span></div><div style="font-size:40px;margin-top:14px">BORRACHEIRO</div></div>
+    <div class="a" id="s7-n3" style="left:720px;top:1000px;text-align:center;width:300px"><div class="node" style="margin:0 auto"><span class="emoji">🔧</span></div><div style="font-size:40px;margin-top:14px">MECÂNICO</div></div>
+    <div class="a" id="s7-chama" style="left:690px;top:640px;background:#fff;color:var(--asfalto);font-size:60px;padding:20px 34px;border-radius:40px 40px 40px 6px;font-style:italic;white-space:nowrap;left:640px">CHAMA! <span class="emoji">📣</span></div>
+    <div class="a" id="s7-p1" style="left:110px;top:940px"><span class="pill" style="background:var(--verde);font-size:34px;padding:10px 22px">+ PARCEIRO</span></div>
+    <div class="a" id="s7-p2" style="left:440px;top:990px"><span class="pill" style="background:var(--verde);font-size:34px;padding:10px 22px">+ PARCEIRO</span></div>
+    <div class="a" id="s7-p3" style="left:770px;top:940px"><span class="pill" style="background:var(--verde);font-size:34px;padding:10px 22px">+ PARCEIRO</span></div>
+  </div>
+
+  <!-- ============ CENA 8: gratuito ============ -->
+  <div class="scene" id="s8" style="background: radial-gradient(circle at 50% 45%, #1fe08a 0%, var(--verde) 50%, #007a45 100%);">
+    <svg class="a" id="s8-confetti" width="1080" height="1920" style="left:0;top:0"></svg>
+    <div class="a center-x" id="s8-t1" style="top:260px"><span class="headline shadow" style="font-size:120px">Acesso</span></div>
+    <div class="a center-x" id="s8-stamp" style="top:420px;color:#fff"><span class="stamp" style="display:inline-block;background:var(--asfalto);border-color:var(--amarelo);color:var(--amarelo)">GRÁTIS</span></div>
+    <div class="a" id="s8-c1" style="left:140px;top:800px"><div class="card" style="padding:22px 50px 22px 26px"><div class="ic emoji" style="background:#d6ffe9;width:120px;height:120px;font-size:76px">✅</div><div class="t">Pro Motoca</div></div></div>
+    <div class="a" id="s8-c2" style="left:140px;top:1020px"><div class="card" style="padding:22px 50px 22px 26px"><div class="ic emoji" style="background:#d6ffe9;width:120px;height:120px;font-size:76px">✅</div><div class="t">Pros parceiros</div></div></div>
+  </div>
+
+  <!-- ============ CENA 9: o Motoca falando ============ -->
+  <div class="scene" id="s9" style="background: linear-gradient(#ff5a00 0%, #ff8c1a 40%, #ffc400 75%);">
+    <svg class="a" id="s9-bg" width="1080" height="1920" viewBox="0 0 1080 1920" style="left:0;top:0"></svg>
+    <svg class="a" id="s9-char" width="1080" height="1300" viewBox="0 0 1080 1300" style="left:0;top:470px"></svg>
+    <div class="a center-x" id="s9-q1" style="top:190px"><span class="pill" style="background:var(--asfalto);font-size:60px">Qualidade de vida</span></div>
+    <div class="a center-x" id="s9-q2" style="top:310px"><span class="pill" style="background:#fff;color:var(--asfalto);font-size:60px">e ser ouvido <span class="emoji">📣</span></span></div>
+    <div class="a center-x" id="s9-b1" style="top:190px"><span class="headline shadow" style="font-size:118px">Bora <span style="color:var(--asfalto)">acelerar!</span></span></div>
+    <div class="a emoji" id="s9-hand" style="left:770px;top:1000px;font-size:230px">🤙🏽</div>
+    <!-- cartela final -->
+    <div class="a" id="s9-end" style="left:0;right:0;top:0;bottom:0;background:rgba(21,21,28,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:50px">
+      <div class="logo" id="s9-endlogo"><div class="roda"></div><div class="txt" style="font-size:110px">MOTOCA<b>FOOD</b></div></div>
+      <div style="font-size:70px;letter-spacing:-1px">motocafood.com.br</div>
+      <div class="pill" style="background:var(--amarelo);color:var(--asfalto);font-size:46px">Grátis pra Motocas e parceiros</div>
+      <div style="font-size:56px;font-style:italic;color:var(--amarelo);margin-top:20px">CHEGOU A NOSSA VEZ!</div>
+    </div>
+  </div>
+
+  <div id="legenda"></div>
+  <div id="flash" class="a" style="inset:0;background:#fff;opacity:0;z-index:60"></div>
+</div>
+
+<script>
+const W = 1080, H = 1920;
+const $ = id => document.getElementById(id);
+const NS = "http://www.w3.org/2000/svg";
+const cl = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, a, d) => cl((t - a) / d);
+const eo = x => 1 - Math.pow(1 - x, 3);
+const eio = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const eob = x => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+// pseudo-aleatório determinístico
+function rnd(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+
+function tf(el, { x = 0, y = 0, s = 1, sx, sy, r = 0, o = 1 } = {}) {
+  if (typeof el === "string") el = $(el);
+  el.style.transform = `translate(${x}px,${y}px) rotate(${r}deg) scale(${sx ?? s},${sy ?? s})`;
+  el.style.opacity = o;
+}
+// entrada "pop" (escala com overshoot)
+function pop(id, t, a, extra = {}) {
+  const p = prog(t, a, .45);
+  tf(id, { s: t < a ? 0 : eob(p), o: prog(t, a, .12), ...extra });
+}
+// entrada deslizando
+function slide(id, t, a, dx = 0, dy = 0, extra = {}) {
+  const p = eo(prog(t, a, .5));
+  tf(id, { x: dx * (1 - p), y: dy * (1 - p), o: prog(t, a, .2), ...extra });
+}
+// carimbo (cai de escala grande)
+function slam(id, t, a, r = 0) {
+  const p = eo(prog(t, a, .25));
+  tf(id, { s: lerp(2.6, 1, p), r, o: prog(t, a, .1) });
+}
+function svg(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+let DATA, SEG, SCENES;
+// tempo estimado em que uma palavra é dita dentro do trecho i (proporcional aos caracteres)
+function at(i, word) {
+  const s = SEG[i], idx = s.text.toLowerCase().indexOf(word.toLowerCase());
+  return s.start + (s.end - s.start) * (Math.max(idx, 0) / s.text.length);
+}
+
+/* ---------------- montagem dos elementos ---------------- */
+function buildMoto(el) {
+  el.innerHTML = `
+    <g id="${el.id}-body">
+      <!-- baú -->
+      <rect x="70" y="70" width="190" height="160" rx="18" fill="#FF6B00" stroke="#15151C" stroke-width="8"/>
+      <rect x="70" y="70" width="190" height="34" rx="12" fill="#FFC400" stroke="#15151C" stroke-width="8"/>
+      <text x="165" y="185" text-anchor="middle" font-family="Inter" font-weight="900" font-style="italic" font-size="52" fill="#fff">MF</text>
+      <!-- chassi -->
+      <path d="M150 300 L250 250 L420 250 L470 180 L500 185 L470 300 Z" fill="#15151C"/>
+      <path d="M210 250 Q260 205 340 215 L430 240 L420 262 L230 268 Z" fill="#FF6B00" stroke="#15151C" stroke-width="6"/>
+      <path d="M330 300 L250 300 L200 340" stroke="#bbb" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="478" y1="180" x2="520" y2="330" stroke="#888" stroke-width="16" stroke-linecap="round"/>
+      <line x1="455" y1="150" x2="520" y2="165" stroke="#15151C" stroke-width="14" stroke-linecap="round"/>
+      <circle cx="520" cy="200" r="16" fill="#FFF6B0" stroke="#15151C" stroke-width="5"/>
+      <!-- piloto -->
+      <path d="M300 245 L330 320 L385 330" stroke="#1d3c78" stroke-width="40" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M290 245 L340 140" stroke="#FF6B00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M345 150 L400 190 L455 155" stroke="#FF6B00" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="455" cy="155" r="15" fill="#C68642"/>
+      <circle cx="360" cy="95" r="52" fill="#15151C"/>
+      <path d="M362 80 Q412 72 410 112 L370 112 Z" fill="#7fd6ff" opacity=".9"/>
+      <path d="M312 92 Q330 45 380 46" stroke="#FFC400" stroke-width="12" fill="none" stroke-linecap="round"/>
+    </g>
+    ${[130, 520].map((cx, k) => `
+      <g transform="translate(${cx} 330)">
+        <circle r="78" fill="#15151C"/><circle r="52" fill="#3a3a44"/>
+        <g id="${el.id}-w${k}">
+          ${[0, 60, 120].map(a => `<rect x="-4" y="-50" width="8" height="100" fill="#cfcfd6" transform="rotate(${a})"/>`).join("")}
+        </g>
+        <circle r="14" fill="#FFC400"/>
+      </g>`).join("")}`;
+}
+
+function buildCity() {
+  const c = $("s1-city"), r = rnd(3);
+  for (let layer = 0; layer < 2; layer++) {
+    const g = svg("g", { id: "city" + layer }, c);
+    let x = 0;
+    while (x < 2400) {
+      const w = 120 + r() * 160, h = (layer ? 260 : 420) + r() * (layer ? 300 : 380);
+      const y = 1260 - h;
+      svg("rect", { x, y, width: w - 10, height: h, fill: layer ? "#24183f" : "#140e2b" }, g);
+      for (let wy = y + 30; wy < 1230; wy += 60)
+        for (let wx = x + 18; wx < x + w - 40; wx += 44)
+          if (r() > .45) svg("rect", { x: wx, y: wy, width: 22, height: 30, fill: r() > .3 ? "#ffcf5a" : "#ff9a3c", opacity: layer ? .9 : .55 }, g);
+      x += w;
+    }
+  }
+  const road = $("s1-road");
+  for (let x = 0; x < 2400; x += 160) svg("rect", { x, y: 10, width: 90, height: 18, rx: 6, fill: "#FFC400" }, road);
+  const lines = $("s1-lines");
+  for (let i = 0; i < 9; i++) svg("rect", { class: "sl", x: 0, y: 40 + i * 60, width: 160 + (i * 73) % 220, height: 8, rx: 4, fill: "#fff", opacity: .6 }, lines);
+}
+
+function buildRays(id, n, color) {
+  const g = $(id);
+  for (let i = 0; i < n; i++) {
+    const a0 = (i / n) * Math.PI * 2, a1 = a0 + Math.PI / n;
+    svg("path", { d: `M0 0 L${Math.cos(a0) * 1400} ${Math.sin(a0) * 1400} L${Math.cos(a1) * 1400} ${Math.sin(a1) * 1400} Z`, fill: color }, g);
+  }
+}
+
+function buildPhoneList() {
+  const items = [
+    ["🍛", "PF do Zé", "Almoço até R$20", "#FFC400"],
+    ["🛞", "Borracharia 24h", "-30% pro Motoca", "#FF6B00"],
+    ["🔧", "Mecânico do Bairro", "-20% na revisão", "#0d3b8c"],
+    ["🛻", "Guincho Já", "Preço camarada", "#00C26E"],
+    ["🍔", "Lanche da Esquina", "Jantar até R$20", "#FFC400"],
+    ["🛞", "Pneu Bom", "-25% pro Motoca", "#FF6B00"],
+  ];
+  $("s2-list").innerHTML = items.map(([e, n, d, c]) => `
+    <div style="display:flex;align-items:center;gap:16px;background:#fff;border-radius:24px;padding:14px;margin-bottom:16px;box-shadow:0 4px 0 rgba(0,0,0,.08)">
+      <div class="emoji" style="width:86px;height:86px;border-radius:20px;background:${c}33;display:grid;place-items:center;font-size:52px">${e}</div>
+      <div style="color:#15151C;font-size:30px;line-height:1.1">${n}<div style="font-size:24px;color:${c === "#FFC400" ? "#c78a00" : c}">${d}</div></div>
+    </div>`).join("");
+}
+
+const S3_NODES = [["🍽️", "-30%"], ["🛞", "-25%"], ["🔧", "-20%"], ["🛻", "-15%"], ["🍔", "-30%"], ["🧰", "-20%"]];
+function buildHub() {
+  const cx = 540, cy = 830, R = 335, wrap = $("s3-nodes"), lines = $("s3-lines");
+  S3_NODES.forEach(([e, d], i) => {
+    const a = -Math.PI / 2 + (i / S3_NODES.length) * Math.PI * 2;
+    const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R * .95;
+    svg("line", { id: "s3-l" + i, x1: cx, y1: cy, x2: x, y2: y, stroke: "#FFC400", "stroke-width": 8, "stroke-dasharray": "18 14" }, lines);
+    const n = document.createElement("div");
+    n.className = "a"; n.id = "s3-n" + i;
+    n.style.cssText = `left:${x - 115}px;top:${y - 115}px`;
+    n.innerHTML = `<div class="node" style="position:relative"><span class="emoji">${e}</span><span class="badge">${d}</span></div>`;
+    wrap.appendChild(n);
+  });
+}
+
+function buildPlate() {
+  $("s4-plate").innerHTML = `
+    <g id="s4-plate-g">
+      <circle r="350" fill="#000" opacity=".12" cy="18"/>
+      <circle r="350" fill="#fff"/><circle r="280" fill="#f3f3f3" stroke="#e2e2e2" stroke-width="6"/>
+      <!-- arroz -->
+      <g>${Array.from({ length: 70 }, (_, i) => { const r = rnd(i + 11); const a = r() * 6.28, d = Math.sqrt(r()) * 120;
+        return `<ellipse cx="${-90 + Math.cos(a) * d}" cy="${-70 + Math.sin(a) * d}" rx="16" ry="8" fill="#fffdf4" stroke="#ece6d0" stroke-width="2" transform="rotate(${r() * 180} ${-90 + Math.cos(a) * d} ${-70 + Math.sin(a) * d})"/>`; }).join("")}</g>
+      <!-- feijão -->
+      <circle cx="110" cy="-90" r="120" fill="#5b2f1b"/>
+      ${Array.from({ length: 26 }, (_, i) => { const r = rnd(i + 99); const a = r() * 6.28, d = Math.sqrt(r()) * 100;
+        return `<ellipse cx="${110 + Math.cos(a) * d}" cy="${-90 + Math.sin(a) * d}" rx="14" ry="9" fill="#3d1d10"/>`; }).join("")}
+      <!-- bife -->
+      <path d="M-40 60 Q-10 20 90 40 Q190 60 170 140 Q150 210 40 200 Q-60 190 -60 130 Z" fill="#8a4a24" stroke="#5e2f14" stroke-width="10"/>
+      <path d="M10 90 L120 100 M0 130 L130 145" stroke="#5e2f14" stroke-width="8" stroke-linecap="round"/>
+      <!-- ovo -->
+      <path d="M-230 40 Q-260 120 -190 170 Q-110 210 -80 140 Q-60 70 -130 40 Q-190 10 -230 40 Z" fill="#fff" stroke="#eee" stroke-width="4"/>
+      <circle cx="-155" cy="105" r="38" fill="#FFB300"/>
+      <!-- salada -->
+      <circle cx="-30" cy="250" r="44" fill="#3fae49"/><circle cx="30" cy="235" r="40" fill="#5cc85a"/>
+      <circle cx="-80" cy="210" r="34" fill="#e53935"/><circle cx="-75" cy="210" r="18" fill="#ff7961"/>
+    </g>`;
+}
+
+function buildRipples() {
+  const g = $("s7-ripples");
+  for (let i = 0; i < 4; i++) svg("circle", { id: "s7-r" + i, cx: 540, cy: 820, r: 100, fill: "none", stroke: "#fff", "stroke-width": 10 }, g);
+  const l = $("s7-links");
+  [[210, 1115], [540, 1165], [870, 1115]].forEach(([x, y], i) =>
+    svg("line", { id: "s7-l" + i, x1: 540, y1: 820, x2: x, y2: y, stroke: "#15151C", "stroke-width": 12, "stroke-linecap": "round" }, l));
+}
+
+function buildConfetti() {
+  const g = $("s8-confetti"), r = rnd(42), cols = ["#FFC400", "#fff", "#FF6B00", "#15151C"];
+  for (let i = 0; i < 90; i++)
+    svg("rect", { class: "cf", width: 18 + r() * 14, height: 10 + r() * 8, fill: cols[i % 4],
+      "data-a": r() * 6.28, "data-v": 600 + r() * 900, "data-s": r() * 720 - 360 }, g);
+}
+
+function buildS9() {
+  const bg = $("s9-bg");
+  bg.innerHTML = `
+    <circle cx="540" cy="900" r="420" fill="#fff3b0" opacity=".55"/>
+    <g fill="#c94400" opacity=".55">
+      ${Array.from({ length: 14 }, (_, i) => { const r = rnd(i + 5); const w = 60 + r() * 90, h = 120 + r() * 280; return `<rect x="${i * 80 - 20}" y="${1250 - h}" width="${w}" height="${h}"/>`; }).join("")}
+    </g>
+    <path d="M0 1250 L1080 1250 L1080 1920 L0 1920 Z" fill="#2a2a33"/>
+    <g id="s9-dash"></g>`;
+  const d = $("s9-dash");
+  for (let i = 0; i < 8; i++) svg("path", { class: "dash", fill: "#FFC400" }, d);
+
+  $("s9-char").innerHTML = `
+    <defs>
+      <clipPath id="mclip"><ellipse id="m-clip" cx="540" cy="790" rx="60" ry="10"/></clipPath>
+    </defs>
+    <!-- baú nas costas -->
+    <g>
+      <rect x="150" y="760" width="780" height="520" rx="40" fill="#e05500" stroke="#15151C" stroke-width="12"/>
+      <rect x="150" y="760" width="780" height="80" rx="30" fill="#FFC400" stroke="#15151C" stroke-width="12"/>
+    </g>
+    <!-- corpo -->
+    <g id="c-body">
+      <path d="M150 1300 Q160 1060 330 990 L470 950 L610 950 L750 990 Q920 1060 930 1300 Z" fill="#FF6B00" stroke="#15151C" stroke-width="12"/>
+      <path d="M200 1150 L880 1150 L890 1210 L190 1210 Z" fill="#FFF6B0" opacity=".9"/>
+      <path d="M470 950 L540 1060 L610 950" fill="#15151C"/>
+      <path d="M540 1060 L540 1300" stroke="#15151C" stroke-width="10"/>
+      <text x="740" y="1110" text-anchor="middle" font-family="Inter" font-weight="900" font-style="italic" font-size="46" fill="#fff">MF</text>
+    </g>
+    <!-- cabeça -->
+    <g id="c-head" style="transform-box: view-box; transform-origin: 540px 900px">
+      <rect x="480" y="840" width="120" height="130" fill="#b5763a"/>
+      <ellipse cx="368" cy="680" rx="34" ry="52" fill="#b5763a"/>
+      <ellipse cx="712" cy="680" rx="34" ry="52" fill="#b5763a"/>
+      <ellipse cx="540" cy="660" rx="175" ry="210" fill="#C68642"/>
+      <!-- barba curta -->
+      <path d="M380 720 Q400 880 540 880 Q680 880 700 720 Q680 830 540 845 Q400 830 380 720 Z" fill="#3b2414" opacity=".85"/>
+      <!-- capacete aberto -->
+      <path d="M335 720 Q300 380 540 360 Q780 380 745 720 L710 720 Q720 520 540 500 Q360 520 370 720 Z" fill="#15151C"/>
+      <path d="M345 560 Q360 400 540 385 Q720 400 735 560 Q700 470 540 462 Q380 470 345 560 Z" fill="#FF6B00"/>
+      <path d="M400 470 Q540 420 680 470" stroke="#FFC400" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <!-- viseira levantada -->
+      <path d="M360 470 Q540 380 720 470 L705 420 Q540 330 375 420 Z" fill="#6fc8f2" opacity=".85" stroke="#15151C" stroke-width="8"/>
+      <path d="M440 410 Q500 385 560 385" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".7"/>
+      <path d="M372 720 Q400 860 470 880" stroke="#15151C" stroke-width="10" fill="none"/>
+      <path d="M708 720 Q680 860 610 880" stroke="#15151C" stroke-width="10" fill="none"/>
+      <!-- sobrancelhas -->
+      <rect id="c-brow-l" x="425" y="575" width="95" height="24" rx="12" fill="#2a1a0e" style="transform-box: fill-box; transform-origin: center"/>
+      <rect id="c-brow-r" x="560" y="575" width="95" height="24" rx="12" fill="#2a1a0e" style="transform-box: fill-box; transform-origin: center"/>
+      <!-- olhos -->
+      <g id="c-eyes" style="transform-box: fill-box; transform-origin: center">
+        <ellipse cx="472" cy="645" rx="32" ry="26" fill="#fff"/>
+        <ellipse cx="608" cy="645" rx="32" ry="26" fill="#fff"/>
+        <circle cx="476" cy="648" r="16" fill="#2a1a0e"/><circle cx="604" cy="648" r="16" fill="#2a1a0e"/>
+        <circle cx="481" cy="642" r="5" fill="#fff"/><circle cx="609" cy="642" r="5" fill="#fff"/>
+      </g>
+      <!-- nariz -->
+      <path d="M540 660 Q525 715 510 728 Q540 742 570 728" stroke="#8a5428" stroke-width="9" fill="none" stroke-linecap="round"/>
+      <!-- boca -->
+      <g id="c-mouth">
+        <ellipse id="m-shape" cx="540" cy="790" rx="60" ry="10" fill="#4a1010"/>
+        <g clip-path="url(#mclip)">
+          <rect id="m-teeth" x="470" y="770" width="140" height="22" fill="#fff"/>
+          <ellipse id="m-tongue" cx="540" cy="830" rx="40" ry="22" fill="#e05666"/>
+        </g>
+        <path id="m-smile" d="M478 780 Q540 812 602 780" stroke="#4a1010" stroke-width="10" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>`;
+}
+
+function buildCaptions() {
+  const HL = ["MOTOCAS", "MOTOCA", "FOOD", "PARCEIROS", "PARCEIRO", "DESCONTOS", "VINTE", "REAIS", "BARATOS", "BARATO", "GRATUITO", "BREVE", "MULTIPLICADOR", "ACELERAR", "VEZ!", "VEZ"];
+  const chunks = [];
+  SEG.forEach(s => {
+    const words = s.text.split(" ");
+    const groups = []; let cur = [];
+    words.forEach(w => {
+      cur.push(w);
+      const len = cur.join(" ").length;
+      if (len > 14 || /[,.!:]$/.test(w) && len > 6) { groups.push(cur); cur = []; }
+    });
+    if (cur.length) groups.length && cur.join(" ").length < 6 ? groups[groups.length - 1].push(...cur) : groups.push(cur);
+    let acc = 0; const total = s.text.length;
+    groups.forEach(g => {
+      const txt = g.join(" "), a = s.start + (s.end - s.start) * acc / total;
+      acc += txt.length + 1;
+      const b = s.start + (s.end - s.start) * Math.min(acc / total, 1);
+      chunks.push({ a, b, html: g.map(w => HL.some(h => w.toUpperCase().replace(/[,.!:]/g, "") === h.replace("!", "")) ? `<span class="hl">${w}</span>` : w).join(" ") });
+    });
+  });
+  // cada legenda fica até a próxima começar (evita piscar entre trechos curtos)
+  chunks.forEach((c, i) => { if (chunks[i + 1] && chunks[i + 1].a - c.b < .4) c.b = chunks[i + 1].a; });
+  return chunks;
+}
+
+let CAPS, AMP, lastCap = -1;
+window.init = function (data) {
+  DATA = data; SEG = data.segments; AMP = data.amp;
+  const st = i => (i === 0 ? 0 : SEG[i].start - .12);
+  SCENES = [
+    [0, st(1)], [st(1), st(2)], [st(2), st(3)], [st(3), st(4)], [st(4), st(5)],
+    [st(5), st(6)], [st(6), st(8)], [st(8), st(9)], [st(9), data.duration + 1],
+  ];
+  buildMoto($("s1-moto")); buildCity(); buildRays("s2-rays", 18, "rgba(255,255,255,.10)");
+  buildPhoneList(); buildHub(); buildPlate(); buildRipples(); buildConfetti(); buildS9();
+  CAPS = buildCaptions();
+  return SCENES;
+};
+
+/* ---------------- render por quadro ---------------- */
+function sceneIn(i, t) {
+  const [a, b] = SCENES[i];
+  const el = $("s" + (i + 1));
+  if (t < a || t >= b + .2) { el.style.opacity = 0; el.style.display = "none"; return false; }
+  el.style.display = "block";
+  const pin = i === 0 ? 1 : prog(t, a, .18), pout = 1 - prog(t, b, .2);
+  const zoom = lerp(1.1, 1, eo(prog(t, a, .45))) * (1 + .03 * prog(t, a, b - a));
+  el.style.opacity = Math.min(pin, pout);
+  el.style.transform = `scale(${zoom})`;
+  el.style.zIndex = i;
+  return true;
+}
+
+window.render = function (t) {
+  const S = SEG;
+  // flash nas trocas de cena
+  let fl = 0;
+  SCENES.slice(1).forEach(([a]) => { fl = Math.max(fl, .35 * (1 - prog(t, a, .22)) * (t >= a ? 1 : 0)); });
+  $("flash").style.opacity = fl;
+
+  /* cena 1 */
+  if (sceneIn(0, t)) {
+    tf("city0", { x: -t * 60 }); tf("city1", { x: -t * 160 });
+    tf("s1-road", { x: -((t * 1400) % 160) });
+    const mx = lerp(-700, 220, eo(prog(t, 0, 1.0)));
+    tf("s1-moto", { x: mx, y: Math.sin(t * 40) * 3, r: -2 * (1 - prog(t, .6, .6)) });
+    $("s1-moto-w0").setAttribute("transform", `rotate(${t * 1500})`);
+    $("s1-moto-w1").setAttribute("transform", `rotate(${t * 1500})`);
+    document.querySelectorAll("#s1-lines .sl").forEach((l, i) => {
+      l.setAttribute("x", 1080 - ((t * 2200 + i * 260) % 1500));
+    });
+    tf("s1-lines", { o: .8 });
+    const sh = t > .35 && t < .6 ? Math.sin(t * 120) * 10 : 0;
+    slam("s1-t1", t, .25, -4); slam("s1-t2", t, .55, -4);
+    $("s1-t2").style.transform += ` translateX(${sh}px)`;
+  }
+
+  /* cena 2 */
+  if (sceneIn(1, t)) {
+    const a = SCENES[1][0];
+    $("s2-rays").style.transform = `rotate(${t * 12}deg)`;
+    slide("s2-t1", t, a + .05, 0, -80);
+    pop("s2-logo", t, at(1, "motoca food") - .1);
+    const pp = eo(prog(t, a + .25, .7));
+    tf("s2-phone", { y: lerp(1300, 0, pp), r: lerp(14, -5, pp) + Math.sin(t * 2) * 1.2, o: prog(t, a + .25, .2) });
+    tf("s2-list", { y: -Math.max(0, t - (a + 1.2)) * 70 });
+    pop("s2-badge", t, at(1, "primeiro"), { r: 12 + Math.sin(t * 3) * 4 });
+    const hb = t > at(1, "importa") ? 1 + .12 * Math.max(0, Math.sin((t - at(1, "importa")) * 9)) : 0;
+    pop("s2-heart", t, at(1, "importa"), { r: -10 });
+    if (t > at(1, "importa") + .45) tf("s2-heart", { s: hb, r: -10 });
+  }
+
+  /* cena 3 */
+  if (sceneIn(2, t)) {
+    const a = SCENES[2][0];
+    slide("s3-t1", t, a + .05, 0, -100);
+    pop("s3-hub", t, a + .15);
+    $("s3-hub").style.boxShadow = `0 0 0 ${22 + Math.sin(t * 6) * 10}px rgba(255,107,0,.3)`;
+    S3_NODES.forEach((_, i) => {
+      const ti = a + .45 + i * .32;
+      const l = $("s3-l" + i);
+      l.style.opacity = prog(t, ti - .15, .2);
+      l.setAttribute("stroke-dashoffset", -t * 60);
+      pop("s3-n" + i, t, ti, { y: Math.sin(t * 2.5 + i) * 8 });
+    });
+    pop("s3-t2", t, at(2, "descontos"));
+  }
+
+  /* cena 4 */
+  if (sceneIn(3, t)) {
+    const a = SCENES[3][0];
+    pop("s4-fase", t, at(3, "primeira") - .1);
+    slide("s4-t1", t, at(3, "restaurantes") - .25, -1100, 0);
+    const pp = eob(prog(t, at(3, "restaurantes"), .6));
+    tf("s4-plate", { s: t < at(3, "restaurantes") ? 0 : pp, o: prog(t, at(3, "restaurantes"), .15) });
+    $("s4-plate-g").setAttribute("transform", `rotate(${t * 8})`);
+    slide("s4-almoco", t, at(3, "almoço") - .1, -700, 0, { r: -3 });
+    slide("s4-jantar", t, at(3, "jantar") - .1, -700, 0, { r: 2 });
+    slam("s4-preco", t, at(3, "vinte") - .1, -8);
+  }
+
+  /* cena 5 */
+  if (sceneIn(4, t)) {
+    const a = SCENES[4][0];
+    slide("s5-t1", t, a + .02, 0, -100);
+    slide("s5-c1", t, at(4, "borracharias") - .15, 1100, 0, { r: -2 });
+    slide("s5-c2", t, at(4, "mecânicos") - .15, 1100, 0, { r: 1.5 });
+    slide("s5-c3", t, at(4, "guinchos") - .15, 1100, 0, { r: -1 });
+    slam("s5-stamp", t, at(4, "baratos") - .1, -12);
+  }
+
+  /* cena 6 */
+  if (sceneIn(5, t)) {
+    const a = SCENES[5][0];
+    slide("s6-tape", t, a, -1300, 0, { r: -4 });
+    ["postos", "advogados", "médicos", "contadores"].forEach((w, i) =>
+      pop("s6-g" + (i + 1), t, at(5, w) - .1, { y: Math.sin(t * 2 + i) * 6 }));
+  }
+
+  /* cena 7 */
+  if (sceneIn(6, t)) {
+    const a = SCENES[6][0];
+    slide("s7-t0", t, a + .05, 0, -80);
+    slam("s7-t1", t, at(6, "agente") - .1, -3);
+    pop("s7-me", t, a + .2, { r: Math.sin(t * 4) * 4 });
+    for (let i = 0; i < 4; i++) {
+      const ph = ((t - a) * .6 + i / 4) % 1;
+      const c = $("s7-r" + i);
+      c.setAttribute("r", 140 + ph * 700); c.setAttribute("opacity", (1 - ph) * .35 * prog(t, a + .3, .3));
+    }
+    pop("s7-chama", t, at(7, "chama") - .1, { r: -4 });
+    [["restaurante", 1], ["borracheiro", 2], ["mecânico", 3]].forEach(([w, n]) => {
+      const tw = at(7, w) - .15;
+      const l = $("s7-l" + (n - 1));
+      const len = 420, pr = eo(prog(t, tw - .2, .35));
+      l.setAttribute("stroke-dasharray", len); l.setAttribute("stroke-dashoffset", len * (1 - pr));
+      pop("s7-n" + n, t, tw, { y: Math.sin(t * 3 + n) * 6 });
+    });
+    [1, 2, 3].forEach(n => pop("s7-p" + n, t, at(7, "parceiro") - .25 + (n - 1) * .12, { r: -6 }));
+  }
+
+  /* cena 8 */
+  if (sceneIn(7, t)) {
+    const a = SCENES[7][0], tg = at(8, "gratuito") - .1;
+    slide("s8-t1", t, a + .05, 0, -100);
+    slam("s8-stamp", t, tg, -8);
+    document.querySelectorAll("#s8-confetti .cf").forEach(c => {
+      const dt = Math.max(0, t - tg), ang = +c.dataset.a, v = +c.dataset.v;
+      const x = 540 + Math.cos(ang) * v * dt, y = 560 + Math.sin(ang) * v * dt * .8 + 900 * dt * dt;
+      c.setAttribute("transform", `translate(${x} ${y}) rotate(${c.dataset.s * dt})`);
+      c.setAttribute("opacity", t < tg ? 0 : 1);
+    });
+    slide("s8-c1", t, at(8, "você") - .15, -1100, 0, { r: -2 });
+    slide("s8-c2", t, at(8, "parceiros") - .15, 1100, 0, { r: 1.5 });
+  }
+
+  /* cena 9 — o Motoca falando */
+  if (sceneIn(8, t)) {
+    const a = SCENES[8][0];
+    document.querySelectorAll("#s9-dash .dash").forEach((d, i) => {
+      const ph = ((t * 1.2 + i / 8) % 1), y0 = 1260 + ph * ph * 700, h = 20 + ph * 160, w0 = 6 + ph * 50;
+      d.setAttribute("d", `M${540 - w0 / 2} ${y0} L${540 + w0 / 2} ${y0} L${540 + w0 * .7} ${y0 + h} L${540 - w0 * .7} ${y0 + h} Z`);
+    });
+    const amp = AMP[Math.min(AMP.length - 1, Math.round(t * 30))] || 0;
+    const ent = eob(prog(t, a, .6));
+    tf("s9-char", { y: lerp(900, 0, ent) + Math.sin(t * 3) * 6, o: prog(t, a, .2) });
+    // cabeça acompanha a fala
+    $("c-head").style.transform = `rotate(${Math.sin(t * 2.3) * 3 + amp * 2 * Math.sin(t * 7)}deg) translateY(${-amp * 10}px)`;
+    // boca
+    const open = amp > .08 ? 8 + amp * 52 : 0;
+    const rx = 58 - amp * 10 + Math.sin(t * 17) * 4 * amp;
+    ["m-shape", "m-clip"].forEach(id => { $(id).setAttribute("ry", Math.max(open, .1)); $(id).setAttribute("rx", rx); });
+    $("m-teeth").setAttribute("y", 790 - open);
+    $("m-tongue").setAttribute("cy", 790 + open * .8);
+    $("m-smile").style.opacity = open > 0 ? 0 : 1;
+    $("m-shape").style.opacity = open > 0 ? 1 : 0;
+    // sobrancelhas e piscadas
+    const browY = -amp * 14;
+    tf("c-brow-l", { y: browY, r: -6 - amp * 6 }); tf("c-brow-r", { y: browY, r: 6 + amp * 6 });
+    const bl = [37.9, 40.2, 42.4, 44.0].some(b => t > b && t < b + .14);
+    tf("c-eyes", { sy: bl ? .1 : 1 });
+    // textos
+    const tq = at(9, "qualidade") - .1, tb = S[10].start - .1;
+    const outQ = 1 - prog(t, tb - .2, .2);
+    slide("s9-q1", t, tq, 0, -60, { o: Math.min(prog(t, tq, .2), outQ) });
+    slide("s9-q2", t, at(9, "ouvido") - .1, 0, -60, { o: Math.min(prog(t, at(9, "ouvido") - .1, .2), outQ) });
+    slam("s9-b1", t, tb, -3);
+    pop("s9-hand", t, tb + .15, { r: Math.sin(t * 10) * 12 });
+    // cartela final
+    const te = S[10].end + .25;
+    $("s9-end").style.opacity = prog(t, te, .35);
+    pop("s9-endlogo", t, te + .1);
+  }
+
+  /* legenda */
+  let ci = -1;
+  for (let i = 0; i < CAPS.length; i++) if (t >= CAPS[i].a && t < CAPS[i].b) { ci = i; break; }
+  const leg = $("legenda");
+  const hide = t > S[10].end + .25;
+  if (ci !== lastCap) { leg.innerHTML = ci >= 0 ? `<span>${CAPS[ci].html}</span>` : ""; lastCap = ci; }
+  if (ci >= 0 && !hide) {
+    const p = prog(t, CAPS[ci].a, .12);
+    leg.style.opacity = 1; leg.style.transform = `scale(${lerp(.85, 1, eob(p))})`;
+  } else leg.style.opacity = 0;
+};
+</script>
+</body>
+</html>
