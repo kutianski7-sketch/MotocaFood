@@ -1,0 +1,39 @@
+name: Publicar no Instagram
+
+# Publica os itens vencidos da fila (marketing/data/fila.json no branch marketing-fila).
+# Secrets necessários: IG_ACCESS_TOKEN e IG_USER_ID (Settings > Secrets and variables > Actions).
+on:
+  schedule:
+    - cron: "*/15 10-23,0-3 * * *"   # 07h às 00h59 em São Paulo (UTC-3)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-instagram
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: marketing-fila
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publicar itens vencidos
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python marketing/tools/fila.py publicar
+      - name: Gravar estado da fila
+        run: |
+          if ! git diff --quiet marketing/data/fila.json; then
+            git config user.name "motocafood-bot"
+            git config user.email "motocafood-bot@users.noreply.github.com"
+            git commit -am "Fila: atualiza status das publicações"
+            git push origin marketing-fila
+          fi

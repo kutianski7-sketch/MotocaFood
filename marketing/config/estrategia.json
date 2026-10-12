@@ -1,0 +1,51 @@
+{
+  "marca": {
+    "nome": "Motoca Food",
+    "site": "https://motocafood.com.br",
+    "instagram": "@motocafood",
+    "tom": "Parceiro de corre, gíria de motoca na medida, bem-humorado, respeitoso e direto. Nunca zoa o trabalhador. Valoriza qualidade de vida, segurança, comida boa e barata e o motoca ser ouvido.",
+    "publico": "Motoboys e motogirls de entrega por aplicativo (iFood, 99Food, Uber Eats, Rappi, Loggi) e motoristas de aplicativo (Uber, 99, inDrive) da Grande São Paulo, 18 a 45 anos.",
+    "cores": ["#FFC400", "#111111", "#FFFFFF"],
+    "cta_padrao": "Acesse motocafood.com.br (link na bio)"
+  },
+
+  "modo_publicacao": "aprovacao",
+
+  "limites_por_dia": {
+    "reels": { "min": 1, "max": 3 },
+    "stories": { "min": 3, "max": 10 },
+    "feed_imagem": { "min": 0, "max": 1 }
+  },
+  "orcamento_creditos_higgsfield_por_dia": 60,
+  "intervalo_minimo_entre_posts_min": 90,
+
+  "horarios_hipotese_inicial": {
+    "explicacao": "Entregador e motorista de app trabalham nos picos de almoço (11h-14h) e jantar (18h-22h) e usam o celular nas brechas: antes do almoço, no vale da tarde e depois do último corre. Domingo cedo e segunda são dias de folga para muitos.",
+    "reels": ["09:30", "15:30", "22:40"],
+    "stories": ["08:00", "10:30", "14:30", "16:30", "17:30", "22:00", "23:15"],
+    "peso_dia_semana": { "seg": 1.1, "ter": 1.0, "qua": 1.0, "qui": 1.0, "sex": 0.85, "sab": 0.8, "dom": 1.15 }
+  },
+  "exploracao": 0.25,
+
+  "pilares_conteudo": [
+    "Humor do corre: situações do dia a dia do motoca (chuva, cliente que não desce, app que trava)",
+    "Dicas práticas: economia de combustível, manutenção da moto, segurança, saúde e postura",
+    "Comida boa e barata para quem está na rua: ofertas e parceiros Motoca Food",
+    "Voz do motoca: enquetes, caixinha de perguntas, depoimentos e reivindicações",
+    "Motoristas de app: pausa, alimentação, renda extra"
+  ],
+
+  "hashtags_base": ["#motoca", "#motoboy", "#motoboys", "#entregador", "#ifood", "#ubereats", "#99food", "#motoristadeaplicativo", "#uber", "#99pop", "#saopaulo", "#sp", "#motocafood"],
+
+  "apify": {
+    "hashtags_pesquisa": ["motoca", "motoboy", "motoboysp", "entregadorsp", "entregadordeaplicativo", "motoristadeaplicativo", "motoristauber", "uberbrasil"],
+    "posts_por_hashtag": 40
+  },
+
+  "higgsfield": {
+    "modelo_imagem": "nano_banana_2_1",
+    "formato_reels_stories": "9:16",
+    "formato_feed": "4:5",
+    "duracao_reels_seg": 8
+  }
+}
