@@ -32,7 +32,7 @@ No iFood, o preço costuma ser mais alto do que no balcão. Se ali estiver ≤ R
 ## Passo a passo
 
 1. **Recorte.** Defina o bairro ou a zona. Se não vier nada, comece pelo **Centro** (Sé, República, Bom Retiro, Brás), onde há muito Motoca rodando. Quantidade padrão: 10 lugares.
-2. **Busque** com termos de quem procura comida barata, variando entre eles: `PF barato [bairro]`, `prato feito R$15 [bairro]`, `marmitex [bairro] preço`, `comercial almoço [bairro]`, `restaurante popular [bairro]`. Inclua os **Bom Prato** da região (refeição a R$1, programa do governo de SP) em uma linha separada, com `tipo = Bom Prato`, porque eles não viram parceiros.
+2. **Busque** com termos de quem procura comida barata, variando entre eles: `PF barato [bairro]`, `prato feito R$15 [bairro]`, `marmitex [bairro] preço`, `comercial almoço [bairro]`, `restaurante popular [bairro]`. Inclua os **Bom Prato** da região (estadual e o Bom Prato Paulistano da Prefeitura, com refeição a R$1) com `tipo = programa público`, porque eles não viram parceiros, mas são informação útil para o Motoca.
 3. **Confira o preço de cada lugar** na fonte original (abra a página e não confie em resumo de busca). Anote o valor, o que vem no prato, o link e a data da fonte.
 4. **Dê uma nota de confiança:**
    - `alta`: preço visto em 2 fontes, ou no Instagram/cardápio oficial nos últimos 3 meses.
@@ -41,19 +41,28 @@ No iFood, o preço costuma ser mais alto do que no balcão. Se ali estiver ≤ R
 5. **Junte os dados de cadastro:** nome, endereço com bairro, zona, horário (almoço/jantar e dias) e contato (telefone/WhatsApp/Instagram), sempre de fonte pública do próprio lugar.
 6. **Gere o CSV** (separador `;`, UTF-8 com BOM, para abrir certo no Excel) com estas colunas, nesta ordem:
 
-   `nome;endereco;bairro;zona;refeicao;o_que_vem;preco;horario;telefone;instagram;fonte_preco;data_fonte;confianca;status;observacao`
+   `nome;tipo;endereco;bairro;zona;refeicao;o_que_vem;preco;horario;telefone;instagram;fonte_preco;data_fonte;confianca;status;observacao`
+
+   - `tipo`: restaurante, marmitaria ou programa público.
 
    - `refeicao`: almoço, jantar ou almoço e jantar.
    - `preco`: número com vírgula, ex.: `18,00`.
    - `status`: sempre **`Encontrado`** ao sair da busca. Só a equipe muda para `Contatado` ou `Parceiro confirmado`.
-   - Salve como `parceiros/AAAA-MM-DD_[bairro].csv`.
+   - Salve como `parceiros/AAAA-MM-DD_[bairro].csv`. O que tiver confiança `baixa` vai para `parceiros/AAAA-MM-DD_[bairro]_a-confirmar.csv`, junto com o que falta checar.
 7. **Resuma na conversa:** quantos lugares entraram, quantos ficaram "a confirmar" e por quê, e os 3 mais promissores para contatar primeiro.
+
+## Dicas da busca (aprendidas na prática)
+
+- **R$20 é raro.** Pelo Procon-SP/Dieese, o PF custava em média R$39,10 na cidade em jun/2026. A zona leste era a mais barata (média de R$30,87) e o Centro ficava em R$39,71. Quem passa no critério costuma ser **marmitex/marmitaria de bairro**, em especial nas zonas leste, sul e norte, e quase nunca restaurante de guia ou de matéria gastronômica.
+- **Busque "marmitex" e "marmitaria" antes de "restaurante".** Guias de "melhores PFs" trazem pratos de R$28 para cima. Use-os só para descartar.
+- **Instagram e Google Maps quase sempre bloqueiam leitura automática.** Quando a IA só viu o preço no trecho do resultado de busca (sem abrir a página nem ver a data), a confiança é `baixa`, e alguém da equipe abre o perfil para confirmar.
+- **Cuidado com a cidade.** Matéria de "marmita a R$10" pode ser de Florianópolis, de Curitiba etc. Confira o endereço antes de incluir.
 
 ## Exemplo de linha
 
 ```
-nome;endereco;bairro;zona;refeicao;o_que_vem;preco;horario;telefone;instagram;fonte_preco;data_fonte;confianca;status;observacao
-Restaurante Exemplo;Rua Exemplo, 100;Brás;Centro;almoço;arroz, feijão, bife, salada e fritas;18,00;seg–sáb 11h–15h;(11) 90000-0000;@exemplo;https://instagram.com/p/...;2026-09-20;alta;Encontrado;preço também visto em avaliação do Google de ago/2026
+nome;tipo;endereco;bairro;zona;refeicao;o_que_vem;preco;horario;telefone;instagram;fonte_preco;data_fonte;confianca;status;observacao
+Restaurante Exemplo;restaurante;Rua Exemplo, 100;Brás;Centro;almoço;arroz, feijão, bife, salada e fritas;18,00;seg–sáb 11h–15h;(11) 90000-0000;@exemplo;https://instagram.com/p/...;2026-09-20;alta;Encontrado;preço também visto em avaliação do Google de ago/2026
 ```
 
 (É uma linha ilustrativa. Na planilha de verdade, todo dado tem que ter vindo de uma fonte.)
