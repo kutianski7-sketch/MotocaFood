@@ -21,6 +21,9 @@
 - **Situação atual (17/10/2026):** ainda não há produtos, parceiros nem anúncios na plataforma.
 - **Parceiros que ele quer trazer:** médicos (telemedicina), advogados baratos, contadores, despachantes e outros prestadores de serviço para motoboys.
 - **Como os parceiros funcionam:** a plataforma é só um diretório. O profissional é cadastrado para o motoca encontrar, o atendimento e o pagamento acontecem direto entre os dois, fora da plataforma, e o Motoca Food não faz repasse nem cobra comissão.
+- **Desconto para assinantes:** os profissionais cadastrados dão desconto a quem assina. Exemplo: teleconsulta que custa ~R$ 80 sai por R$ 50, para o motoca não depender do sistema público de saúde.
+  - Com R$ 30 de economia por consulta, duas teleconsultas já pagam a assinatura anual de R$ 60.
+  - O Gabriel disse "para quem for cadastrado", mas o modelo prevê o desconto só para assinantes; registrado como assinante.
 
 ## Modelo de receita
 A cobrança começa só quando a base chegar a **10 mil cadastrados**.
@@ -30,13 +33,14 @@ A cobrança começa só quando a base chegar a **10 mil cadastrados**.
 | Gratuito | R$ 0 | só a localização de restaurantes baratos |
 | Assinatura | R$ 5/mês, com plano anual obrigatório (um Pix único de R$ 60) | serviços: telemedicina, advogados baratos etc. |
 
-- **Segunda fonte:** anúncios de lojas no app, inicialmente de R$ 1.000 a R$ 2.000 por mês.
+- **Segunda fonte:** anúncios de empresas e parceiros, de R$ 1.000 a R$ 2.000 por mês **por anunciante**, inicialmente.
+  - **O que o anunciante recebe:**
+    1. Anúncios dentro da plataforma.
+    2. Mensagens de WhatsApp disparadas para os cadastrados, com descontos e propagandas direcionadas.
+    3. Primeiro lugar na busca.
 
 ## Marketing
-- **Orçamento:** R$ 1.000 por semana (~R$ 4.300 por mês).
+- **Orçamento planejado:** R$ 1.000 por semana (~R$ 4.300 por mês).
 - **Canal:** influenciadores pagos, em SP e começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro. Problema: precisa cobrar deles a postagem mesmo depois de já ter pago (ver [preferencias.md](preferencias.md)).
-
-## Sem registro
-- Se o anúncio de R$ 1.000 a 2.000 é por loja ou o total, e o que a loja recebe por esse valor
-- Custo por cadastro atual (quanto do marketing gerou os 430)
-- Se o profissional cadastrado oferece desconto ou condição especial a quem assina
+- **Gasto até 17/10/2026:** R$ 300 no total. Um influenciador por 2 semanas e outro por 1 semana, a R$ 100 por semana cada.
+- **Custo por cadastro (estimativa):** R$ 300 / 430 = ~R$ 0,70. Considera que todos os cadastros vieram dos influenciadores; parte pode ter sido orgânica.

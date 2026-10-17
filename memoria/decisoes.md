@@ -14,7 +14,8 @@ Formato: decisão — motivo (data, quando conhecida).
 - **Segunda fonte de receita: anúncios de lojas no app** (17/10/2026).
 - **Começar por São Paulo e depois expandir para o Brasil todo** (17/10/2026). Campanhas com influenciadores já começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro.
 - **Parceiros só como diretório:** o atendimento e o pagamento acontecem direto com o profissional; o Motoca Food não recebe nada dos parceiros (17/10/2026).
-- **Anúncios de lojas: de R$ 1.000 a R$ 2.000 por mês, inicialmente** (17/10/2026).
+- **Anúncios: de R$ 1.000 a R$ 2.000 por mês, por anunciante, inicialmente; incluem anúncio no app, disparo de WhatsApp para os cadastrados e primeiro lugar na busca** (17/10/2026).
+- **Profissionais parceiros dão desconto a assinantes** (exemplo: teleconsulta de R$ 80 por R$ 50) (17/10/2026).
 - **Marketing: R$ 1.000 por semana** (17/10/2026).
 - **Meta de 100 mil até dezembro de 2026** (17/10/2026). Conflita com a meta de 10 mil em 30/12/2026; ano em aberto.
 
@@ -30,6 +31,5 @@ Formato: decisão — motivo (data, quando conhecida).
 
 ## Em aberto
 - Prazo dos 100 mil: dezembro de 2026 ou de 2027?
-- Valor dos anúncios: por loja ou o total?
 - Alpha Vantage vs. IBKR como fonte de dados do screener.
 - Pesos finais da carteira de aposentadoria.

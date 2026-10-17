@@ -17,9 +17,13 @@
 | 10 mil até 30/12/2026 | 9.570 | 74 | ~129 | ~4,5x | ~R$ 1,10 |
 | 100 mil até 31/12/2026 | 99.570 | 75 | ~1.330 | ~46x | ~R$ 0,10 |
 
-- **Marketing:** R$ 1.000 por semana em influenciadores; SP mais Salvador, Curitiba, Fortaleza e Rio de Janeiro.
+- **Custo por cadastro real até 17/10/2026:** ~R$ 0,70 (R$ 300 para 430 cadastros).
+  - Mantido esse custo, R$ 1.000 por semana renderiam ~1.430 cadastros por semana (~204 por dia).
+  - Isso basta para os 10 mil até 30/12, que pedem ~129 por dia.
+  - Para os 100 mil seriam precisos ~R$ 70 mil no total; em 2026 só fecha com um custo por cadastro de ~R$ 0,10.
+  - Ressalva: o custo por cadastro costuma subir quando a campanha cresce e chega a cidades novas.
+- **Marketing:** R$ 1.000 por semana em influenciadores (equivale a 10 influenciadores por semana ao preço atual de R$ 100); SP mais Salvador, Curitiba, Fortaleza e Rio de Janeiro.
 - **Equipe:** Gabriel + Vitor + Matheus (sócios).
-- **Sem registro:** custo por cadastro atual.
 
 ## Motoca Food — vídeo Reels de lançamento
 - **Entregável:** `video/motocafood_reels.mp4` — Instagram, 1080x1920, 30 fps, ~45 s, -14 LUFS.

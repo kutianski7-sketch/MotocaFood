@@ -3,7 +3,7 @@
 - **Nome:** Gabriel
 - **Papel:** dono e sócio do Motoca Food; toma todas as decisões
 - **Empresa:** Motoca Food (ver [empresa.md](empresa.md))
-- **Cidade:** sem registro
+- **Cidade:** São Paulo
 
 ## Objetivos
 - **Negócio:** 10 mil motocas cadastrados até 30/12/2026 (quando começa a cobrança); 100 mil até dezembro de 2026 (ano a confirmar); R$ 1.000 por semana em marketing; expandir de São Paulo para o Brasil todo.
