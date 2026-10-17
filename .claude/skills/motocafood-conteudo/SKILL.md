@@ -33,7 +33,7 @@ Nesses casos, avise que a skill é para falar com o Motoca e pergunte se quer se
 
 Fato que não está nesta tabela (nome de parceiro, bairro, preço exato, data, cupom, @ ou número de contato) **só entra se o usuário informar**.
 Se precisar dele e ele não veio, deixe um marcador visível, como `[@ DO INSTAGRAM]` ou `[NOME DO RESTAURANTE]`, e liste o que falta no final.
-Parceiro citado pelo nome tem que **já estar cadastrado** e com preço conferido. Preço achado na internet ou por IA é só pista, não fato.
+Parceiro citado pelo nome tem que estar com status **`Parceiro confirmado`** na planilha da skill `motocafood-parceiros` (restaurante só "Encontrado" ou "cadastrado" não conta). Preço achado na internet ou por IA é só pista, não fato.
 
 ## Tom de voz: gíria de motoboy
 
@@ -87,7 +87,7 @@ Por que funciona: abre com a assinatura, traz um número concreto (R$20), dá ao
 ## O que nunca fazer
 
 - **Nunca inventar** parceiro, bairro, preço, desconto em %, cupom, data ou número de usuários. Na dúvida, use um marcador `[...]`.
-- **Nunca anunciar** restaurante como parceiro antes de ele estar cadastrado e com o preço de até R$20 conferido.
+- **Nunca anunciar** restaurante como parceiro, nem prometer desconto nele, antes de ele estar como `Parceiro confirmado` (alguém da equipe falou com o lugar e ele topou).
 - **Nunca falar** como se o app já atendesse fora da cidade de São Paulo.
 - **Nunca prometer** o que ainda é "em breve" (postos, advogados, médicos, contadores) como se já existisse.
 - **Nunca cobrar nem insinuar custo**: o acesso é gratuito para o Motoca e para os parceiros.
