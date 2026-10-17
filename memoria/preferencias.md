@@ -5,7 +5,7 @@
 - Informação específica e factual; sem elogios nem generalidades.
 - Recomendações sempre com trade-offs e ressalvas explícitos.
 - Lacunas marcadas explicitamente como "sem registro"; nunca inferir.
-- O que irrita: sem registro
+- **O que irrita:** influenciadores que ele já pagou e que só postam se ele ficar cobrando.
 
 ## Formato
 - Markdown, com títulos `##` por categoria.

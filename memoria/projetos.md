@@ -2,13 +2,16 @@
 
 ## Motoca Food — a plataforma (projeto principal)
 - **O que é:** a própria plataforma motocafood.com.br (ver [empresa.md](empresa.md)).
-- **Status (17/10/2026):** no ar há 15 dias, 430 motocas cadastrados, nenhum parceiro ou anúncio ainda.
+- **Status (17/10/2026):** no ar há 15 dias, 430 motocas cadastrados (São Paulo), nenhum parceiro ou anúncio ainda.
 - **Próximos passos:**
-  1. Trazer os primeiros parceiros: médicos, contadores, despachantes etc.
-  2. Investir em marketing para crescer a base.
-- **Meta:** 100 mil motocas cadastrados.
-- **Equipe:** Gabriel + 2 devs (sócios).
-- **Sem registro:** prazo da meta, orçamento de marketing, como os parceiros vão entrar e pagar.
+  1. Crescer a base com marketing (influenciadores) até 10 mil cadastrados.
+  2. Trazer os primeiros parceiros: telemedicina, advogados baratos, contadores, despachantes etc.
+  3. Ao chegar a 10 mil: ativar a assinatura (anual de R$ 60 via Pix) e os anúncios de lojas.
+  4. Expandir de São Paulo para o Brasil todo.
+- **Metas:** 10 mil cadastrados até 30/12/2026; depois, 100 mil.
+- **Ritmo necessário (cálculo de 17/10/2026):** o ritmo atual é de ~29 cadastros por dia (430 em 15 dias). Para chegar a 10 mil em 30/12 faltam 9.570 em 74 dias, ou seja, ~129 por dia: cerca de 4,5 vezes o ritmo atual.
+- **Equipe:** Gabriel + Vitor + Mateus (sócios).
+- **Sem registro:** prazo da meta de 100 mil, orçamento de marketing, como os parceiros entram no app e como são pagos.
 
 ## Motoca Food — vídeo Reels de lançamento
 - **Entregável:** `video/motocafood_reels.mp4` — Instagram, 1080x1920, 30 fps, ~45 s, -14 LUFS.

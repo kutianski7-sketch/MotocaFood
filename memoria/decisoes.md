@@ -6,7 +6,13 @@ Formato: decisão — motivo (data, quando conhecida).
 
 ## Motoca Food
 - **Meta de 100 mil motocas cadastrados, com investimento em marketing** (17/10/2026).
-- **Trazer parceiros de serviço: médicos, contadores, despachantes etc.** (17/10/2026).
+- **Meta intermediária de 10 mil cadastrados até 30/12/2026** (17/10/2026).
+- **Trazer parceiros de serviço: telemedicina, advogados baratos, contadores, despachantes etc.** (17/10/2026).
+- **Começar a cobrar só a partir de 10 mil cadastrados** (17/10/2026).
+- **Freemium:** grátis = só localização de restaurantes baratos; assinatura = acesso aos serviços (17/10/2026).
+- **Assinatura de R$ 5/mês com plano anual obrigatório, pago num Pix único de R$ 60** (17/10/2026).
+- **Segunda fonte de receita: anúncios de lojas no app** (17/10/2026).
+- **Começar por São Paulo e depois expandir para o Brasil todo** (17/10/2026).
 
 ## Investimentos pessoais
 
