@@ -9,7 +9,8 @@
   3. Ao chegar a 10 mil: ativar a assinatura (anual de R$ 60 via Pix) e os anúncios de lojas.
   4. Expandir de São Paulo para o Brasil todo (campanhas já começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro).
 - **Metas:** 10 mil cadastrados até 30/12/2026; 100 mil até dezembro de 2026.
-  - **Conflito em aberto:** as duas metas caem no mesmo mês. Falta confirmar se os 100 mil são para dezembro de 2027.
+  - Confirmado em 17/10/2026: os 100 mil são para dezembro de 2026. O Gabriel reconhece que é ousado e pretende investir pesado em marketing.
+- **Lançamento do app:** 17/10/2026.
 - **Ritmo necessário (cálculo de 17/10/2026, ritmo atual ~29 cadastros/dia):**
 
 | Meta | Faltam | Dias | Cadastros/dia | Vezes o ritmo atual | Custo máximo por cadastro com R$ 1.000/semana |
@@ -22,6 +23,10 @@
   - Isso basta para os 10 mil até 30/12, que pedem ~129 por dia.
   - Para os 100 mil seriam precisos ~R$ 70 mil no total; em 2026 só fecha com um custo por cadastro de ~R$ 0,10.
   - Ressalva: o custo por cadastro costuma subir quando a campanha cresce e chega a cidades novas.
+- **O que os 100 mil exigem (cálculo de 17/10/2026):**
+  - Pelo resultado do @l.vinis (~250 cadastros por Reels, 0,57% das views), seriam ~400 Reels desse nível, ~37 por semana, ou ~17,5 milhões de views no total.
+  - A ~R$ 0,70 por cadastro, seriam ~R$ 70 mil em ~11 semanas (~R$ 6.500 por semana), contra os R$ 1.000 por semana planejados.
+  - Com 20 influenciadores a 1 Reels por semana cada, no nível do @l.vinis: ~5 mil cadastros por semana, chegando a ~55 mil no fim de dezembro.
 - **Marketing:** R$ 1.000 por semana em influenciadores (equivale a 10 influenciadores por semana ao preço atual de R$ 100); SP mais Salvador, Curitiba, Fortaleza e Rio de Janeiro.
 - **Equipe:** Gabriel + Vitor + Matheus (sócios).
 
