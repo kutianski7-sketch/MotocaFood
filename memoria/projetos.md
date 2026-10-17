@@ -23,11 +23,17 @@
   - Isso basta para os 10 mil até 30/12, que pedem ~129 por dia.
   - Para os 100 mil seriam precisos ~R$ 70 mil no total; em 2026 só fecha com um custo por cadastro de ~R$ 0,10.
   - Ressalva: o custo por cadastro costuma subir quando a campanha cresce e chega a cidades novas.
-- **O que os 100 mil exigem (cálculo de 17/10/2026):**
-  - Pelo resultado do @l.vinis (~250 cadastros por Reels, 0,57% das views), seriam ~400 Reels desse nível, ~37 por semana, ou ~17,5 milhões de views no total.
-  - A ~R$ 0,70 por cadastro, seriam ~R$ 70 mil em ~11 semanas (~R$ 6.500 por semana), contra os R$ 1.000 por semana planejados.
-  - Com 20 influenciadores a 1 Reels por semana cada, no nível do @l.vinis: ~5 mil cadastros por semana, chegando a ~55 mil no fim de dezembro.
-- **Marketing:** R$ 1.000 por semana em influenciadores (equivale a 10 influenciadores por semana ao preço atual de R$ 100); SP mais Salvador, Curitiba, Fortaleza e Rio de Janeiro.
+- **Projeção com o orçamento fixo** (cálculo de 17/10/2026): 10 influenciadores por semana, ~10,7 semanas até 31/12, ~R$ 10.700 no total, mais ~10 cadastros orgânicos por dia.
+
+| Cenário (cadastros por influenciador por semana) | Por semana | Total em 31/12 (incluindo os 430) | 10 mil? | 100 mil? |
+|---|---|---|---|---|
+| Todos como o kachorro.louco (30) | ~370 | ~4.400 | não | não |
+| Média dos dois (140) | ~1.470 | ~16 mil | sim | não |
+| Todos como o @l.vinis (250) | ~2.570 | ~28 mil | sim | não |
+
+  - **10 mil:** pede uma média de ~83 cadastros por influenciador por semana.
+  - **100 mil:** com R$ 1.000 por semana, pede ~880 cadastros por influenciador por semana, 3,5 vezes o melhor resultado até hoje. Não fecha em nenhum dos cenários.
+- **Marketing:** orçamento fixo de R$ 1.000 por semana = 10 influenciadores a R$ 100; SP mais Salvador, Curitiba, Fortaleza e Rio de Janeiro.
 - **Equipe:** Gabriel + Vitor + Matheus (sócios).
 
 ## Motoca Food — vídeo Reels de lançamento

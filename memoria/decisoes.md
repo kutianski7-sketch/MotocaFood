@@ -16,9 +16,9 @@ Formato: decisão — motivo (data, quando conhecida).
 - **Parceiros só como diretório:** o atendimento e o pagamento acontecem direto com o profissional; o Motoca Food não recebe nada dos parceiros (17/10/2026).
 - **Anúncios: de R$ 1.000 a R$ 2.000 por mês, por anunciante, inicialmente; incluem anúncio no app, disparo de WhatsApp para os cadastrados e primeiro lugar na busca** (17/10/2026).
 - **Profissionais parceiros dão desconto a assinantes** (exemplo: teleconsulta de R$ 80 por R$ 50) (17/10/2026).
-- **Marketing: R$ 1.000 por semana** (17/10/2026).
+- **Marketing: orçamento fixo de R$ 1.000 por semana = 10 influenciadores a R$ 100 por semana** (17/10/2026).
 - **Meta de 100 mil até dezembro de 2026, mantida mesmo sendo ousada** — investir pesado em marketing (17/10/2026).
-- **Contratar mais 10 a 20 influenciadores a partir do lançamento do app** (17/10/2026).
+- **Contratar 10 influenciadores por semana a partir do lançamento do app** (17/10/2026; antes falava em 10 a 20, limitado pelo orçamento).
 
 ## Investimentos pessoais
 
@@ -31,6 +31,5 @@ Formato: decisão — motivo (data, quando conhecida).
 - **Memória permanente em Markdown no repositório** (`memoria/` + `MEMORY.md`) — 17/10/2026.
 
 ## Em aberto
-- Orçamento de marketing: os R$ 1.000 por semana vão subir para bancar 10 a 20 influenciadores?
 - Alpha Vantage vs. IBKR como fonte de dados do screener.
 - Pesos finais da carteira de aposentadoria.

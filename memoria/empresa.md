@@ -40,9 +40,17 @@ A cobrança começa só quando a base chegar a **10 mil cadastrados**.
     3. Primeiro lugar na busca.
 
 ## Marketing
-- **Orçamento planejado:** R$ 1.000 por semana (~R$ 4.300 por mês).
+- **Orçamento (fixo, confirmado em 17/10/2026):** R$ 1.000 por semana = 10 influenciadores a R$ 100 por semana (~R$ 4.300 por mês).
 - **Canal:** influenciadores pagos, em SP e começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro. Problema: precisa cobrar deles a postagem mesmo depois de já ter pago (ver [preferencias.md](preferencias.md)).
 - **Gasto até 17/10/2026:** R$ 300 no total. Um influenciador por 2 semanas e outro por 1 semana, a R$ 100 por semana cada.
-- **Melhor resultado:** @l.vinis (Instagram). Um Reels com 44 mil views trouxe ~250 cadastros, cerca de 0,57% das views. Foram ~58% de todos os cadastros até 17/10.
-- **Plano a partir de 17/10/2026:** contratar mais 10 a 20 influenciadores.
+- **Resultado por influenciador (até 17/10/2026):**
+
+| Influenciador | Cidade | Cadastros | Fatia dos 430 |
+|---|---|---|---|
+| @l.vinis (Instagram) | sem registro | ~250 (Reels com 44 mil views, ~0,57% das views) | ~58% |
+| kachorro.louco | Fortaleza | ~30 | ~7% |
+| Orgânico ou outra origem | — | ~150 | ~35% |
+
+  - Falta saber qual dos dois ficou 2 semanas, sem o que não dá para calcular o custo por cadastro de cada um.
+- **Plano a partir de 17/10/2026:** 10 influenciadores por semana, dentro do orçamento de R$ 1.000.
 - **Custo por cadastro (estimativa):** R$ 300 / 430 = ~R$ 0,70. Considera que todos os cadastros vieram dos influenciadores; parte pode ter sido orgânica.

@@ -9,7 +9,7 @@
 ## Outros
 - **Time além dos sócios:** não há (17/10/2026)
 - **Parceiros/estabelecimentos-chave:** nenhum ainda (17/10/2026). Quando entrarem, ficam só cadastrados para os motocas encontrarem e atendem por fora da plataforma (ver [empresa.md](empresa.md)).
-- **Influenciadores contratados:** 2 até 17/10/2026; plano de contratar mais 10 a 20. Problema: é preciso cobrar deles a postagem mesmo após o pagamento.
+- **Influenciadores contratados:** 2 até 17/10/2026; plano de 10 por semana a R$ 100 cada. Problema: é preciso cobrar deles a postagem mesmo após o pagamento.
   - **@l.vinis** (Instagram): o melhor até agora. Um Reels com 44 mil views trouxe ~250 cadastros.
-  - **Segundo influenciador:** nome sem registro.
+  - **kachorro.louco** (com K), de Fortaleza: trouxe só ~30 cadastros.
 - **Clientes-chave:** sem registro
