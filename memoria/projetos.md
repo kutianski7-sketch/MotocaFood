@@ -7,11 +7,19 @@
   1. Crescer a base com marketing (influenciadores) até 10 mil cadastrados.
   2. Trazer os primeiros parceiros: telemedicina, advogados baratos, contadores, despachantes etc.
   3. Ao chegar a 10 mil: ativar a assinatura (anual de R$ 60 via Pix) e os anúncios de lojas.
-  4. Expandir de São Paulo para o Brasil todo.
-- **Metas:** 10 mil cadastrados até 30/12/2026; depois, 100 mil.
-- **Ritmo necessário (cálculo de 17/10/2026):** o ritmo atual é de ~29 cadastros por dia (430 em 15 dias). Para chegar a 10 mil em 30/12 faltam 9.570 em 74 dias, ou seja, ~129 por dia: cerca de 4,5 vezes o ritmo atual.
-- **Equipe:** Gabriel + Vitor + Mateus (sócios).
-- **Sem registro:** prazo da meta de 100 mil, orçamento de marketing, como os parceiros entram no app e como são pagos.
+  4. Expandir de São Paulo para o Brasil todo (campanhas já começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro).
+- **Metas:** 10 mil cadastrados até 30/12/2026; 100 mil até dezembro de 2026.
+  - **Conflito em aberto:** as duas metas caem no mesmo mês. Falta confirmar se os 100 mil são para dezembro de 2027.
+- **Ritmo necessário (cálculo de 17/10/2026, ritmo atual ~29 cadastros/dia):**
+
+| Meta | Faltam | Dias | Cadastros/dia | Vezes o ritmo atual | Custo máximo por cadastro com R$ 1.000/semana |
+|---|---|---|---|---|---|
+| 10 mil até 30/12/2026 | 9.570 | 74 | ~129 | ~4,5x | ~R$ 1,10 |
+| 100 mil até 31/12/2026 | 99.570 | 75 | ~1.330 | ~46x | ~R$ 0,10 |
+
+- **Marketing:** R$ 1.000 por semana em influenciadores; SP mais Salvador, Curitiba, Fortaleza e Rio de Janeiro.
+- **Equipe:** Gabriel + Vitor + Matheus (sócios).
+- **Sem registro:** custo por cadastro atual.
 
 ## Motoca Food — vídeo Reels de lançamento
 - **Entregável:** `video/motocafood_reels.mp4` — Instagram, 1080x1920, 30 fps, ~45 s, -14 LUFS.

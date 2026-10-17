@@ -12,7 +12,11 @@ Formato: decisão — motivo (data, quando conhecida).
 - **Freemium:** grátis = só localização de restaurantes baratos; assinatura = acesso aos serviços (17/10/2026).
 - **Assinatura de R$ 5/mês com plano anual obrigatório, pago num Pix único de R$ 60** (17/10/2026).
 - **Segunda fonte de receita: anúncios de lojas no app** (17/10/2026).
-- **Começar por São Paulo e depois expandir para o Brasil todo** (17/10/2026).
+- **Começar por São Paulo e depois expandir para o Brasil todo** (17/10/2026). Campanhas com influenciadores já começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro.
+- **Parceiros só como diretório:** o atendimento e o pagamento acontecem direto com o profissional; o Motoca Food não recebe nada dos parceiros (17/10/2026).
+- **Anúncios de lojas: de R$ 1.000 a R$ 2.000 por mês, inicialmente** (17/10/2026).
+- **Marketing: R$ 1.000 por semana** (17/10/2026).
+- **Meta de 100 mil até dezembro de 2026** (17/10/2026). Conflita com a meta de 10 mil em 30/12/2026; ano em aberto.
 
 ## Investimentos pessoais
 
@@ -25,5 +29,7 @@ Formato: decisão — motivo (data, quando conhecida).
 - **Memória permanente em Markdown no repositório** (`memoria/` + `MEMORY.md`) — 17/10/2026.
 
 ## Em aberto
+- Prazo dos 100 mil: dezembro de 2026 ou de 2027?
+- Valor dos anúncios: por loja ou o total?
 - Alpha Vantage vs. IBKR como fonte de dados do screener.
 - Pesos finais da carteira de aposentadoria.

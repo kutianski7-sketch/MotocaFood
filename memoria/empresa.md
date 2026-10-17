@@ -14,12 +14,13 @@
 |---|---|---|
 | 17/10/2026 | 430 | 15 dias de site no ar |
 
-- **Metas:** 10 mil cadastrados até 30/12/2026; depois, 100 mil.
-- **Região:** hoje os motocas são de São Paulo; o plano é expandir para o Brasil todo.
+- **Metas:** 10 mil cadastrados até 30/12/2026; 100 mil até dezembro de 2026 (conflito entre as duas datas em aberto; ver [projetos.md](projetos.md)).
+- **Região:** o app roda em São Paulo. Em 17/10/2026 começaram campanhas com influenciadores em Salvador, Curitiba, Fortaleza e Rio de Janeiro. Meta: o Brasil todo.
 
 ## Oferta
 - **Situação atual (17/10/2026):** ainda não há produtos, parceiros nem anúncios na plataforma.
 - **Parceiros que ele quer trazer:** médicos (telemedicina), advogados baratos, contadores, despachantes e outros prestadores de serviço para motoboys.
+- **Como os parceiros funcionam:** a plataforma é só um diretório. O profissional é cadastrado para o motoca encontrar, o atendimento e o pagamento acontecem direto entre os dois, fora da plataforma, e o Motoca Food não faz repasse nem cobra comissão.
 
 ## Modelo de receita
 A cobrança começa só quando a base chegar a **10 mil cadastrados**.
@@ -29,12 +30,13 @@ A cobrança começa só quando a base chegar a **10 mil cadastrados**.
 | Gratuito | R$ 0 | só a localização de restaurantes baratos |
 | Assinatura | R$ 5/mês, com plano anual obrigatório (um Pix único de R$ 60) | serviços: telemedicina, advogados baratos etc. |
 
-- **Segunda fonte:** anúncios pagos de lojas dentro do app.
+- **Segunda fonte:** anúncios de lojas no app, inicialmente de R$ 1.000 a R$ 2.000 por mês.
 
 ## Marketing
-- Usa influenciadores pagos. Problema: precisa cobrar deles a postagem mesmo depois de já ter pago (ver [preferencias.md](preferencias.md)).
+- **Orçamento:** R$ 1.000 por semana (~R$ 4.300 por mês).
+- **Canal:** influenciadores pagos, em SP e começando em Salvador, Curitiba, Fortaleza e Rio de Janeiro. Problema: precisa cobrar deles a postagem mesmo depois de já ter pago (ver [preferencias.md](preferencias.md)).
 
 ## Sem registro
-- Preço dos anúncios para lojas
-- Orçamento de marketing
-- Quanto cada parceiro recebe ou paga (repasse para médicos, advogados etc.)
+- Se o anúncio de R$ 1.000 a 2.000 é por loja ou o total, e o que a loja recebe por esse valor
+- Custo por cadastro atual (quanto do marketing gerou os 430)
+- Se o profissional cadastrado oferece desconto ou condição especial a quem assina
