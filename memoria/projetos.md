@@ -1,5 +1,15 @@
 # Projetos em andamento
 
+## Motoca Food — a plataforma (projeto principal)
+- **O que é:** a própria plataforma motocafood.com.br (ver [empresa.md](empresa.md)).
+- **Status (17/10/2026):** no ar há 15 dias, 430 motocas cadastrados, nenhum parceiro ou anúncio ainda.
+- **Próximos passos:**
+  1. Trazer os primeiros parceiros: médicos, contadores, despachantes etc.
+  2. Investir em marketing para crescer a base.
+- **Meta:** 100 mil motocas cadastrados.
+- **Equipe:** Gabriel + 2 devs (sócios).
+- **Sem registro:** prazo da meta, orçamento de marketing, como os parceiros vão entrar e pagar.
+
 ## Motoca Food — vídeo Reels de lançamento
 - **Entregável:** `video/motocafood_reels.mp4` — Instagram, 1080x1920, 30 fps, ~45 s, -14 LUFS.
 - **Conteúdo:** cenas animadas com narração e legendas; no final o Motoca fala (lip-sync) e fecha com a cartela da marca e motocafood.com.br.
