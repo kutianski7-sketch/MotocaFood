@@ -25,11 +25,15 @@ Nesses casos, avise que a skill é para falar com o Motoca e pergunte se quer se
 | Em breve | Postos de gasolina, advogados, médicos e contadores com preço baixo |
 | Preço | **Acesso gratuito** para o Motoca e para os parceiros |
 | Papel do Motoca | **Agente multiplicador**: chama o restaurante onde já come, o borracheiro e o mecânico pra virar parceiro |
+| Como indicar | O Motoca manda **nome + bairro** do lugar (nos comentários ou no direct). Não existe link nem formulário de indicação. |
+| Como o parceiro entra | A equipe pesquisa os lugares (com ajuda de IA), **confere se o almoço/jantar sai por até R$20** e cadastra na plataforma. O Motoca não cadastra nada. |
+| Cidade foco | **São Paulo (capital)** neste início. Nada de falar como se o app já estivesse em outras cidades. |
 | Causa | "Chegou a hora de o Motoca ter qualidade de vida e ser ouvido!" |
 | Site | motocafood.com.br |
 
-Fato que não está nesta tabela (nome de parceiro, bairro, preço exato, data, cupom, link de cadastro) **só entra se o usuário informar**.
-Se precisar dele e ele não veio, deixe um marcador visível, como `[LINK DE INDICAÇÃO]` ou `[NOME DO RESTAURANTE]`, e liste o que falta no final.
+Fato que não está nesta tabela (nome de parceiro, bairro, preço exato, data, cupom, @ ou número de contato) **só entra se o usuário informar**.
+Se precisar dele e ele não veio, deixe um marcador visível, como `[@ DO INSTAGRAM]` ou `[NOME DO RESTAURANTE]`, e liste o que falta no final.
+Parceiro citado pelo nome tem que **já estar cadastrado** e com preço conferido. Preço achado na internet ou por IA é só pista, não fato.
 
 ## Tom de voz: gíria de motoboy
 
@@ -37,6 +41,8 @@ Se precisar dele e ele não veio, deixe um marcador visível, como `[LINK DE IND
 - Abertura de assinatura: **"Fala, Motocas!"** (ou "Fala, Motoca!" se for para uma pessoa só).
 - Fechamento de assinatura: **"Bora acelerar, Motoca! Chegou a nossa vez!"**
 - Linguagem de rua e de corredor: "pra", "tá", "corre", "rolê", "na pista", "no grau", "parça", "rango", "bater o rango". Escreva como um Motoca falando com outro, não como uma empresa falando com o público.
+- Sotaque de São Paulo, sem exagero: "mano", "quebrada", "da hora", "trampo". Cite as regiões pelo nome que o Motoca usa (zona leste, zona sul, centro, Marginal) quando ajudar.
+- A ação de indicar é sempre simples: **"comenta o nome e o bairro"** ou **"manda no direct"**. Nunca peça para baixar algo, preencher formulário ou cadastrar o restaurante.
 - Frases curtas, uma ideia por frase. Na fala, nada que trave a língua.
 - O Motoca é protagonista e dono da causa ("a nossa vez"), nunca coitado.
 
@@ -50,7 +56,7 @@ Se precisar dele e ele não veio, deixe um marcador visível, como `[LINK DE IND
      Gancho em até 2 s ("Fala, Motocas!" + a dor ou o benefício). Texto na tela com no máximo 4 palavras por cartela, em CAIXA ALTA nos destaques.
      A narração deve ter entre 90 e 120 palavras para 45 s. Feche com a assinatura e com a cartela motocafood.com.br.
      Se o vídeo for gerado pelo pipeline de `video/` (`tts.py`), dê também a grafia de pronúncia de "Motoca Food" como **"Motoca Fúd"** e de "app" como **"ápi"**.
-   - **Legenda de post/carrossel:** a 1ª linha é o gancho (aparece antes do "mais"). Depois, de 3 a 6 linhas curtas, a ação clara e 3 a 5 hashtags no fim (#MotocaFood #Motoboy #Motocas + local, se houver).
+   - **Legenda de post/carrossel:** a 1ª linha é o gancho (aparece antes do "mais"). Depois, de 3 a 6 linhas curtas, a ação clara e 3 a 5 hashtags no fim (#MotocaFood #Motoboy #Motocas #MotoboySP + bairro/zona, se houver).
      No carrossel, descreva slide a slide (máx. 7), com no máximo 12 palavras por slide.
    - **WhatsApp:** pronto para encaminhar em grupo. Até ~600 caracteres, *negrito* do WhatsApp em 1 ou 2 destaques, no máximo 3 emojis e o link ou a ação no final. Precisa fazer sentido para quem recebe encaminhado sem contexto.
 5. **Revise com o checklist** (todas as respostas precisam ser "sim"):
@@ -81,6 +87,8 @@ Por que funciona: abre com a assinatura, traz um número concreto (R$20), dá ao
 ## O que nunca fazer
 
 - **Nunca inventar** parceiro, bairro, preço, desconto em %, cupom, data ou número de usuários. Na dúvida, use um marcador `[...]`.
+- **Nunca anunciar** restaurante como parceiro antes de ele estar cadastrado e com o preço de até R$20 conferido.
+- **Nunca falar** como se o app já atendesse fora da cidade de São Paulo.
 - **Nunca prometer** o que ainda é "em breve" (postos, advogados, médicos, contadores) como se já existisse.
 - **Nunca cobrar nem insinuar custo**: o acesso é gratuito para o Motoca e para os parceiros.
 - **Nunca incentivar** pressa, excesso de velocidade, manobra arriscada, celular na mão pilotando ou furar sinal. "Bora acelerar" é sobre a causa, não sobre a pista. Cenas sempre com capacete.
