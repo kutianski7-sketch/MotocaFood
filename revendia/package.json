@@ -1,0 +1,20 @@
+{
+  "name": "revendia",
+  "version": "1.0.0",
+  "description": "RevendIA — plataforma com agentes de IA que operam a revenda de cosméticos (Boticário, Natura, Avon...) no piloto automático.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "express": "^4.22.3"
+  }
+}

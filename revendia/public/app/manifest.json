@@ -1,0 +1,11 @@
+{
+  "name": "RevendIA — sua revenda no piloto automático",
+  "short_name": "RevendIA",
+  "start_url": "/app/",
+  "scope": "/app/",
+  "display": "standalone",
+  "background_color": "#FFF6F0",
+  "theme_color": "#3B1E54",
+  "lang": "pt-BR",
+  "icons": [{ "src": "/assets/icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

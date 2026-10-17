@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RevendIA — sua revenda no piloto automático</title>
+<meta name="description" content="A inteligência artificial que cuida da sua revenda de cosméticos: pedidos, boletos, motoboy, Instagram, campanhas e financeiro no automático. Você só paga e entrega.">
+<meta name="theme-color" content="#3B1E54">
+<meta property="og:title" content="RevendIA — sua revenda no piloto automático">
+<meta property="og:description" content="Agentes de IA para revendedoras de Boticário, Natura, Avon e mais. Comece só com seu WhatsApp.">
+<meta property="og:image" content="/video/poster.jpg">
+<link rel="icon" href="/assets/icone.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #FFF6F0; --surface: #fff; --ink: #2A1638; --ink-2: #5E4A6B; --muted: #8E7C99; --line: #EEDDE6; --plum: #3B1E54; --rose: #E85D9A; --rose-ink: #B8346F; --peach: #FFB4A2; --mint: #2EC4A0; --soft: #FBEFF4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #140E1A; --surface: #1C1424; --ink: #F6EEF8; --ink-2: #CDBFD6; --muted: #9C8BA8; --line: #33263F; --rose-ink: #F59CC3; --soft: #261B31; } }
+:root[data-theme="dark"] { --bg: #140E1A; --surface: #1C1424; --ink: #F6EEF8; --ink-2: #CDBFD6; --muted: #9C8BA8; --line: #33263F; --rose-ink: #F59CC3; --soft: #261B31; }
+* { box-sizing: border-box; } html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 "Nunito", system-ui, sans-serif; overflow-x: hidden; }
+a { color: inherit; } img, video { max-width: 100%; display: block; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+h1, h2, h3 { line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }
+h1 { font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 900; } h2 { font-size: clamp(1.6rem, 4.4vw, 2.5rem); font-weight: 900; } h3 { font-size: 1.15rem; font-weight: 800; }
+.lead { font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: var(--ink-2); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 24px; border-radius: 16px; font-weight: 900; text-decoration: none; border: 0; cursor: pointer; font: inherit; font-weight: 900; min-height: 52px; }
+.btn.primary { background: var(--rose); color: #fff; box-shadow: 0 10px 30px rgba(232, 93, 154, .35); } .btn.ghost { background: transparent; border: 2px solid var(--line); color: var(--ink); }
+nav.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .wrap { display: flex; align-items: center; gap: 12px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.2rem; text-decoration: none; }
+.logo img { width: 34px; height: 34px; } nav.top .links { margin-left: auto; display: flex; gap: 18px; align-items: center; font-weight: 800; font-size: .95rem; }
+nav.top .links a.l { text-decoration: none; color: var(--ink-2); } nav.top .btn { min-height: 42px; padding: 9px 16px; }
+@media (max-width: 760px) { nav.top .links a.l { display: none; } }
+section { padding: 64px 0; } .center { text-align: center; }
+.hero { padding: 48px 0 32px; background: radial-gradient(1200px 500px at 80% -10%, rgba(232, 93, 154, .18), transparent), radial-gradient(800px 400px at 0% 20%, rgba(255, 180, 162, .25), transparent); }
+.hero .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+@media (max-width: 860px) { .hero .grid { grid-template-columns: 1fr; } }
+.tag { display: inline-block; background: var(--soft); color: var(--rose-ink); font-weight: 900; font-size: .85rem; padding: 6px 12px; border-radius: 99px; margin-bottom: 14px; }
+.hero h1 span { background: linear-gradient(90deg, #E85D9A, #FF9A7A); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.mini { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 18px; color: var(--muted); font-weight: 700; font-size: .92rem; }
+.phone { width: min(330px, 86vw); margin: 0 auto; aspect-ratio: 9 / 19.5; border-radius: 44px; background: #120A18; padding: 12px; box-shadow: 0 30px 80px rgba(59, 30, 84, .35), inset 0 0 0 2px #2b1d36; position: relative; }
+.phone video, .phone .poster { width: 100%; height: 100%; object-fit: cover; border-radius: 34px; background: linear-gradient(160deg, #3B1E54, #E85D9A); }
+.phone::before { content: ""; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 90px; height: 22px; border-radius: 20px; background: #120A18; z-index: 2; }
+.play { position: absolute; inset: 0; margin: auto; width: 84px; height: 84px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .92); color: var(--plum); display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,.3); z-index: 3; }
+.play svg { width: 34px; height: 34px; margin-left: 4px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 22px; }
+.card .ico { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem; background: var(--soft); margin-bottom: 12px; }
+.card ul { padding-left: 18px; margin: .4em 0 0; color: var(--ink-2); } .card li { margin: 4px 0; }
+.antes-depois { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; } @media (max-width: 760px) { .antes-depois { grid-template-columns: 1fr; } }
+.antes { background: #F1ECEF; color: #4a4050; } .depois { background: linear-gradient(150deg, #3B1E54, #7B2E6E 55%, #E85D9A); color: #fff; border: 0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .antes { background: #241d29; color: #cfc4d6; } }
+.antes li::marker { content: "✗  "; color: #C0282E; } .depois li::marker { content: "✓  "; color: #9FF0D6; } .depois ul { color: #FBE7F1; }
+.passos { counter-reset: p; display: grid; gap: 14px; margin-top: 28px; }
+.passo { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 18px; }
+.passo::before { counter-increment: p; content: counter(p); width: 48px; height: 48px; border-radius: 14px; background: var(--plum); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 1.3rem; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passo::before { background: var(--rose); } }
+.passo p { margin: .2em 0 0; color: var(--ink-2); } .voce { display: inline-block; font-size: .78rem; font-weight: 900; padding: 3px 9px; border-radius: 99px; background: #FFF0D6; color: #8a4f00; margin-left: 6px; vertical-align: 2px; }
+.so-duas { background: var(--plum); color: #fff; border-radius: 28px; padding: 36px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; align-items: center; }
+.so-duas .big { font-size: 3rem; } .so-duas p { color: #EBDDF3; }
+.planos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 760px; margin: 28px auto 0; }
+.plano { text-align: left; } .plano.destaque { border: 2px solid var(--rose); position: relative; } .plano .preco { font-size: 2.4rem; font-weight: 900; } .plano .preco small { font-size: 1rem; color: var(--muted); }
+.selo { position: absolute; top: -12px; right: 18px; background: var(--rose); color: #fff; font-size: .8rem; font-weight: 900; padding: 4px 10px; border-radius: 99px; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; margin: 10px 0; } summary { font-weight: 900; cursor: pointer; } details p { color: var(--ink-2); }
+.marcas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 18px; } .marcas span { background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; font-weight: 800; color: var(--ink-2); }
+footer { padding: 36px 0 48px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
+.fixo { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 20; display: none; } @media (max-width: 760px) { .fixo { display: flex; } body { padding-bottom: 80px; } }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="logo" href="#"><img src="/assets/icone.svg" alt="">RevendIA</a>
+  <div class="links"><a class="l" href="#video">Como funciona</a><a class="l" href="#agentes">Agentes</a><a class="l" href="#planos">Planos</a><a class="l" href="/app/">Entrar</a><a class="btn primary" href="/assinar">Assinar</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap grid">
+  <div>
+    <span class="tag">Para revendedoras de Boticário, Natura, Avon, Eudora e mais</span>
+    <h1>Sua revenda no <span>piloto automático</span>.</h1>
+    <p class="lead">A RevendIA é uma equipe de agentes de inteligência artificial que anota os pedidos do WhatsApp, repassa pra marca, chama o motoboy, posta no seu Instagram, cobra as clientes e cuida do seu financeiro. <b>Você só paga o boleto e entrega a sacolinha.</b></p>
+    <div class="ctas"><a class="btn primary" href="/assinar">Quero minha revenda no automático</a><a class="btn ghost" href="#video">▶ Ver como funciona</a></div>
+    <div class="mini"><span>✓ Começa só com seu WhatsApp</span><span>✓ PIX ou cartão</span><span>✓ Funciona no celular</span></div>
+  </div>
+  <div class="phone" id="video">
+    <video id="vid" playsinline preload="metadata" poster="/video/poster.jpg" controls>
+      <source src="/video/revendia_explicativo.mp4" type="video/mp4">
+    </video>
+    <button class="play" id="play" aria-label="Assistir ao vídeo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <h2 class="center">Do caderninho ao piloto automático</h2>
+  <div class="antes-depois">
+    <div class="card antes"><h3>Antes</h3><ul>
+      <li>Anotar pedido no caderno e digitar um por um no app da marca</li>
+      <li>Somar boleto na calculadora e perder o prazo do ciclo</li>
+      <li>Cliente reclamando: "cadê meu perfume?"</li>
+      <li>Sair de casa pra entregar cada sacolinha</li>
+      <li>Instagram parado há semanas</li>
+      <li>Não saber se teve lucro no fim do mês</li></ul></div>
+    <div class="card depois"><h3>Com a RevendIA</h3><ul>
+      <li>A IA lê o WhatsApp, anota e repassa o pedido pra marca</li>
+      <li>Junta os pedidos até o mínimo do ciclo e te manda uma lista diária de boletos</li>
+      <li>Identifica o pagamento sozinha e avisa a cliente quando chega e quando entrega</li>
+      <li>Chama o motoboy pra retirar na sua casa e levar até a cliente</li>
+      <li>Cria e publica posts, Reels e campanhas pra você vender mais</li>
+      <li>Fluxo de caixa, DRE e relatório mensal prontos no celular</li></ul></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2 class="center">Como funciona, do pedido ao lucro</h2>
+  <p class="lead center">A mesma jornada que você já conhece — só que a IA faz quase tudo.</p>
+  <div class="passos">
+    <div class="passo"><div><h3>Catálogo e divulgação</h3><p>Conecta sua conta da marca e o catálogo do ciclo aparece sozinho. A IA posta no Instagram e manda as promoções pra sua lista de transmissão.</p></div></div>
+    <div class="passo"><div><h3>Pedido no WhatsApp</h3><p>A cliente pede como sempre pediu. A IA entende a mensagem, confere o estoque, manda o resumo e o Pix pra ela.</p></div></div>
+    <div class="passo"><div><h3>Pedido mínimo e repasse à marca</h3><p>Os pedidos se juntam até bater o mínimo do ciclo (ex.: R$ 199) e são enviados automaticamente pra marca.</p></div></div>
+    <div class="passo"><div><h3>Boleto <span class="voce">você paga</span></h3><p>Todo dia de manhã chega no seu WhatsApp a lista de boletos. Você paga no app do banco e a plataforma identifica o pagamento sozinha.</p></div></div>
+    <div class="passo"><div><h3>Chegou! Motoboy <span class="voce">você entrega a sacolinha</span></h3><p>A cliente recebe a previsão de chegada e de entrega. Quando as caixas chegam, a IA chama o motoboy, que retira na sua casa.</p></div></div>
+    <div class="passo"><div><h3>Recebimento e lucro</h3><p>Cobrança gentil das clientes, conciliação do extrato, fluxo de caixa, DRE e relatório mensal com o que fazer pra vender mais.</p></div></div>
+  </div>
+</div></section>
+
+<section id="agentes" style="background:var(--soft)"><div class="wrap">
+  <h2 class="center">Uma equipe inteira de IA trabalhando pra você</h2>
+  <div class="cards">
+    <div class="card"><div class="ico">📣</div><h3>Marketing</h3><ul><li>Posts automáticos no Instagram</li><li>Roteiros de Reels e Stories</li><li>Anúncios com público e orçamento</li><li>Campanhas e combos por data comemorativa</li></ul></div>
+    <div class="card"><div class="ico">🤝</div><h3>Comercial</h3><ul><li>Triagem e pontuação de leads</li><li>Follow-up com cadências</li><li>Propostas comerciais e kits</li><li>Análise de conversas e ligações</li></ul></div>
+    <div class="card"><div class="ico">⚙️</div><h3>Operações</h3><ul><li>Pedido → marca → motoboy → cliente</li><li>Onboarding de cada nova cliente</li><li>Pós-venda, NPS e recompra</li><li>Suporte com níveis de criticidade e prazo</li></ul></div>
+    <div class="card"><div class="ico">💰</div><h3>Financeiro e administrativo</h3><ul><li>Cobrança das clientes por Pix</li><li>Conciliação bancária automática</li><li>Fluxo de caixa e DRE</li><li>Relatório mensal com análise</li></ul></div>
+  </div>
+  <div class="card" style="margin-top:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div class="ico" style="margin:0">🎙️</div><div style="flex:1;min-width:220px"><h3 style="margin:0">Assistente por voz</h3><p style="margin:.2em 0 0;color:var(--ink-2)">Não gosta de digitar? Fala com a Bia: "o que eu entrego hoje?", "cria posts pra semana", "quanto eu lucrei?". Ela responde em voz alta e resolve.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="so-duas">
+    <div><div class="big">🔒</div><h2 style="margin:0">Dinheiro só se mexe com você.</h2></div>
+    <div><p>A IA nunca paga, transfere ou altera sua conta bancária. Essas três coisas são suas, sempre com confirmação por código no seu WhatsApp. O resto — vender, divulgar, organizar, cobrar e entregar — fica com a RevendIA.</p></div>
+  </div>
+  <h2 class="center" style="margin-top:56px">Plug and play: pronto em minutos</h2>
+  <div class="cards">
+    <div class="card"><div class="ico">1</div><h3>Assine com PIX ou cartão</h3><p>Só seu nome e WhatsApp.</p></div>
+    <div class="card"><div class="ico">2</div><h3>Entre com o código do WhatsApp</h3><p>Sem senha pra decorar.</p></div>
+    <div class="card"><div class="ico">3</div><h3>Toque em "Deixa com a IA"</h3><p>Ela conecta marca, catálogo, WhatsApp, Instagram, lista de transmissão e motoboy.</p></div>
+  </div>
+  <div class="marcas"><span>O Boticário</span><span>Natura</span><span>Avon</span><span>Eudora</span><span>+ qualquer marca com catálogo manual</span></div>
+</div></section>
+
+<section id="planos" style="background:var(--soft)"><div class="wrap center">
+  <h2>Menos que um perfume por mês</h2>
+  <p class="lead">Se a RevendIA te fizer vender só um produto a mais por semana, ela já se pagou.</p>
+  <div class="planos">
+    <div class="card plano"><h3>Mensal</h3><div class="preco" data-preco="mensal">R$ 79,90<small>/mês</small></div><ul><li>Todos os agentes de IA</li><li>Assistente por voz</li><li>Sem fidelidade</li></ul><a class="btn ghost" style="width:100%;margin-top:14px" href="/assinar?plano=mensal">Assinar mensal</a></div>
+    <div class="card plano destaque"><span class="selo">2 meses grátis</span><h3>Anual</h3><div class="preco" data-preco="anual">R$ 799<small>/ano</small></div><ul><li>Tudo do mensal</li><li>12 meses pelo preço de 10</li><li>Pague uma vez no PIX ou parcele no cartão</li></ul><a class="btn primary" style="width:100%;margin-top:14px" href="/assinar?plano=anual">Assinar anual</a></div>
+  </div>
+</div></section>
+
+<section><div class="wrap" style="max-width:800px">
+  <h2 class="center">Perguntas frequentes</h2>
+  <details><summary>Preciso entender de tecnologia?</summary><p>Não. Você assina, entra com o código que chega no WhatsApp e toca em "Deixa com a IA". Ela faz as conexões e te pede só o que for indispensável (como autorizar o Instagram).</p></details>
+  <details><summary>A IA paga meus boletos?</summary><p>Não, e de propósito. Pagamentos, transferências e dados bancários são sempre seus. A IA te manda uma lista diária com o que pagar e identifica o pagamento depois.</p></details>
+  <details><summary>Funciona com quais marcas?</summary><p>O Boticário, Natura, Avon e Eudora têm conexão de catálogo e pedidos. Qualquer outra marca funciona com catálogo manual ou por planilha.</p></details>
+  <details><summary>E o motoboy, quem paga?</summary><p>O frete é cobrado por entrega pela empresa parceira e aparece no seu financeiro. Você pode repassar o valor para a cliente ou incluir no preço.</p></details>
+  <details><summary>Posso cancelar quando quiser?</summary><p>Sim. No plano mensal não há fidelidade.</p></details>
+</div></section>
+
+<section class="center" style="padding-top:0"><div class="wrap">
+  <h2>Bora colocar sua revenda no automático?</h2>
+  <a class="btn primary" href="/assinar">Assinar agora</a>
+</div></section>
+
+<footer><div class="wrap">RevendIA © 2026 • Plataforma independente, sem vínculo com as marcas citadas. • <a href="/app/">Entrar no app</a></div></footer>
+<div class="fixo"><a class="btn primary" style="width:100%" href="/assinar">Assinar a RevendIA</a></div>
+<script>
+const v = document.getElementById("vid"), p = document.getElementById("play");
+p.onclick = () => { v.play(); p.remove(); };
+v.addEventListener("play", () => p.isConnected && p.remove());
+fetch("/api/planos").then((r) => r.json()).then((pl) => {
+  const f = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }).replace(",00", "");
+  document.querySelector('[data-preco="mensal"]').innerHTML = `${f(pl.mensal.valor)}<small>/mês</small>`;
+  document.querySelector('[data-preco="anual"]').innerHTML = `${f(pl.anual.valor)}<small>/ano</small>`;
+}).catch(() => {});
+</script>
+</body>
+</html>

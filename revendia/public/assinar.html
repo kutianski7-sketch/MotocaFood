@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assinar RevendIA</title>
+<link rel="icon" href="/assets/icone.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>.opcao { border: 2px solid var(--line); border-radius: 16px; padding: 14px; cursor: pointer; } .opcao.on { border-color: var(--rose); background: color-mix(in srgb, var(--rose) 8%, var(--surface)); } #qr { display: grid; place-items: center; padding: 12px; background: #fff; border-radius: 16px; width: fit-content; margin: 12px auto; }</style>
+</head>
+<body style="padding-bottom:24px">
+<header class="top"><div class="wrap"><a class="logo" href="/" style="text-decoration:none"><span class="logo-mark">R</span>RevendIA</a></div></header>
+<main class="wrap">
+  <div id="form">
+    <h1>Assine e coloque sua revenda no automático</h1>
+    <p class="muted">Depois do pagamento, você entra no app só com seu WhatsApp e um código.</p>
+    <div class="card">
+      <label for="nome">Seu nome</label><input id="nome" autocomplete="name" placeholder="Como você quer ser chamada">
+      <label for="whats">Seu WhatsApp</label><input id="whats" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-0000">
+      <label>Plano</label>
+      <div class="grid2" id="planos">
+        <div class="opcao on" data-plano="mensal"><b>Mensal</b><br><span data-v="mensal">R$ 79,90</span><small>/mês</small></div>
+        <div class="opcao" data-plano="anual"><b>Anual</b> <span class="pill rose">-17%</span><br><span data-v="anual">R$ 799</span><small>/ano</small></div>
+      </div>
+      <label>Pagamento</label>
+      <div class="grid2" id="metodos">
+        <div class="opcao on" data-metodo="pix"><b>PIX</b><br><small>aprovação na hora</small></div>
+        <div class="opcao" data-metodo="cartao"><b>Cartão de crédito</b><br><small>em até 12x</small></div>
+      </div>
+      <button class="btn primary block mt" id="pagar">Continuar para o pagamento</button>
+      <p class="center"><small>🔒 Pagamento processado pelo Mercado Pago.</small></p>
+    </div>
+  </div>
+  <div id="pix" class="hidden card center">
+    <h2>Pague com PIX</h2><p class="muted">Abra o app do seu banco, escolha PIX copia e cola ou leia o QR Code.</p>
+    <div id="qr"></div><div class="mono" id="codigo"></div>
+    <button class="btn block mt" id="copiar">Copiar código PIX</button>
+    <p class="mt"><span class="pill warn" id="st">⏳ Aguardando pagamento…</span></p>
+    <button class="btn ghost block mt hidden" id="simular">Simular pagamento aprovado (teste)</button>
+  </div>
+  <div id="cartao" class="hidden card center"><h2>Quase lá!</h2><p>Você será levada para a página segura de pagamento com cartão.</p><a class="btn primary block" id="irCartao">Pagar com cartão</a><p class="mt"><span class="pill warn">⏳ Aguardando confirmação…</span></p><button class="btn ghost block mt hidden" id="simular2">Simular pagamento aprovado (teste)</button></div>
+  <div id="ok" class="hidden card hero center"><h1>Pagamento confirmado! 💛</h1><p>Mandamos uma mensagem de boas-vindas no seu WhatsApp. Agora é só entrar com o código.</p><a class="btn block mt" style="background:#fff;color:#3B1E54" href="/app/">Entrar no app</a></div>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+let plano = new URLSearchParams(location.search).get("plano") || "mensal", metodo = "pix", assinatura = null;
+const marcar = (grupo, attr, valor) => document.querySelectorAll(`${grupo} .opcao`).forEach((o) => o.classList.toggle("on", o.dataset[attr] === valor));
+marcar("#planos", "plano", plano);
+document.querySelectorAll("#planos .opcao").forEach((o) => (o.onclick = () => { plano = o.dataset.plano; marcar("#planos", "plano", plano); }));
+document.querySelectorAll("#metodos .opcao").forEach((o) => (o.onclick = () => { metodo = o.dataset.metodo; marcar("#metodos", "metodo", metodo); }));
+fetch("/api/planos").then((r) => r.json()).then((p) => { for (const k of ["mensal", "anual"]) $(`[data-v="${k}"]`).textContent = p[k].valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }); });
+
+async function pagar() {
+  const b = $("#pagar"); b.disabled = true;
+  try {
+    const r = await fetch("/api/assinatura", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ nome: $("#nome").value, whatsapp: $("#whats").value, plano, metodo }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.erro);
+    assinatura = d;
+    localStorage.setItem("rv_whatsapp", $("#whats").value);
+    $("#form").classList.add("hidden");
+    if (d.metodo === "pix") {
+      $("#pix").classList.remove("hidden");
+      $("#codigo").textContent = d.pix;
+      if (d.qr) $("#qr").innerHTML = `<img src="data:image/png;base64,${d.qr}" width="220" height="220" alt="QR Code PIX">`;
+      else if (window.QRCode) new QRCode($("#qr"), { text: d.pix, width: 220, height: 220 });
+      if (d.demo) $("#simular").classList.remove("hidden");
+    } else {
+      $("#cartao").classList.remove("hidden");
+      $("#irCartao").href = d.link;
+      if (d.demo) { $("#simular2").classList.remove("hidden"); $("#irCartao").classList.add("hidden"); }
+    }
+    acompanhar();
+  } catch (e) { alert(e.message); } finally { b.disabled = false; }
+}
+async function acompanhar() {
+  const r = await fetch(`/api/assinatura/${assinatura.id}`).then((x) => x.json());
+  if (r.status === "paga") { ["#pix", "#cartao"].forEach((s) => $(s).classList.add("hidden")); $("#ok").classList.remove("hidden"); return; }
+  setTimeout(acompanhar, 3000);
+}
+const simular = () => fetch(`/api/assinatura/${assinatura.id}/simular-pagamento`, { method: "POST" });
+$("#pagar").onclick = pagar;
+$("#copiar").onclick = () => navigator.clipboard.writeText(assinatura.pix).then(() => { $("#copiar").textContent = "Copiado! ✓"; });
+$("#simular").onclick = simular; $("#simular2").onclick = simular;
+</script>
+</body>
+</html>
