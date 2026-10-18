@@ -17,12 +17,14 @@ if (fs.existsSync(envFile)) {
 const e = process.env;
 export const config = {
   porta: Number(e.PORT || 3000),
-  baseUrl: (e.BASE_URL || `http://localhost:${e.PORT || 3000}`).replace(/\/$/, ""),
+  // No Railway, a URL pública vem de RAILWAY_PUBLIC_DOMAIN quando BASE_URL não é definida
+  baseUrl: (e.BASE_URL || (e.RAILWAY_PUBLIC_DOMAIN ? `https://${e.RAILWAY_PUBLIC_DOMAIN}` : `http://localhost:${e.PORT || 3000}`)).replace(/\/$/, ""),
   segredo: e.APP_SECRET || "dev-secret-nao-use-em-producao",
   fuso: e.TZ_REVENDA || "America/Sao_Paulo",
   demo: e.DEMO !== "0",
   producao: e.NODE_ENV === "production",
-  dbPath: e.DB_PATH || path.join(RAIZ, "data", "revendia.db"),
+  // No Railway, com um volume montado, o banco fica nele (RAILWAY_VOLUME_MOUNT_PATH) e sobrevive aos deploys
+  dbPath: e.DB_PATH || (e.RAILWAY_VOLUME_MOUNT_PATH ? path.join(e.RAILWAY_VOLUME_MOUNT_PATH, "revendia.db") : path.join(RAIZ, "data", "revendia.db")),
 
   claude: { chave: e.ANTHROPIC_API_KEY || e.ANTHROPIC_AUTH_TOKEN || "", modelo: e.CLAUDE_MODEL || "claude-opus-5-5" },
 
@@ -51,3 +53,5 @@ export const config = {
     baseUrl: e.LALAMOVE_BASE_URL || "https://rest.sandbox.lalamove.com",
   },
 };
+
+if (config.producao && !e.APP_SECRET) console.warn("[config] Defina APP_SECRET: sem ela as credenciais das integrações usam uma chave de desenvolvimento.");

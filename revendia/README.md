@@ -95,3 +95,10 @@ public/                        landing page, assinatura, app PWA, vídeo
 video/                         pipeline do vídeo explicativo da LP
 test/fluxo.test.js             teste de ponta a ponta
 ```
+
+## Publicar no Railway
+
+1. Novo projeto → **Deploy from GitHub repo** → este repositório, com **Root Directory** `revendia` (o `railway.json` já define start e healthcheck).
+2. **Volume**: adicione um volume ao serviço montado em `/data` (o banco SQLite vai para lá automaticamente).
+3. **Variables**: `APP_SECRET` (texto longo aleatório), `DEMO=1` enquanto não houver integrações reais, e as chaves do `.env.example` conforme forem obtidas. `PORT` e a URL pública já vêm do Railway.
+4. **Networking → Generate Domain** (ou conecte o domínio próprio, ex.: revendia.com.br).
