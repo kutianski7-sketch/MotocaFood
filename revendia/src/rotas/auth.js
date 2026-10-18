@@ -79,7 +79,14 @@ rotas.post("/auth/verificar", (req, res) => {
   try {
     const whatsapp = normalizaWhatsapp(req.body.whatsapp);
     validarOtp(whatsapp, req.body.codigo, "login");
-    const rev = um("SELECT * FROM revendedoras WHERE whatsapp = ?", whatsapp);
+    let rev = um("SELECT * FROM revendedoras WHERE whatsapp = ?", whatsapp);
+    // Teste grátis: o período de 7 dias começa quando o WhatsApp é confirmado
+    if (rev.assinatura_status === "pendente_teste") {
+      const ate = somaDias(new Date(), config.diasTeste).toISOString();
+      atualizar("revendedoras", rev.id, { assinatura_status: "teste", assinatura_ate: ate });
+      registrarEvento(rev.id, "assinatura", `Teste grátis de ${config.diasTeste} dias ativo até ${ate.slice(0, 10)}`);
+      rev = um("SELECT * FROM revendedoras WHERE id = ?", rev.id);
+    }
     const token = crypto.randomBytes(32).toString("hex");
     inserir("sessoes", { token_hash: hash(token), revendedora_id: rev.id, criado_em: agora() });
     cookieSessao(res, token);
@@ -117,8 +124,24 @@ rotas.post("/auth/demo", (req, res) => {
   res.json({ ok: true });
 });
 
+// ---------- Teste grátis (sem cartão; um por número de WhatsApp) ----------
+rotas.post("/teste", async (req, res) => {
+  try {
+    const whatsapp = normalizaWhatsapp(req.body.whatsapp);
+    const nome = String(req.body.nome || "").trim();
+    if (!nome || !whatsapp) throw new Error("Informe seu nome e WhatsApp");
+    const rev = um("SELECT * FROM revendedoras WHERE whatsapp = ?", whatsapp);
+    if (rev && rev.assinatura_status !== "pendente_teste") {
+      throw Object.assign(new Error("Este WhatsApp já tem conta na RevendIA. Entre pelo app ou escolha um plano."), { status: 409 });
+    }
+    if (!rev) inserir("revendedoras", { id: id("rev_"), nome, whatsapp, assinatura_status: "pendente_teste", criado_em: agora() });
+    else atualizar("revendedoras", rev.id, { nome });
+    res.json({ ok: true, dias: config.diasTeste, codigoDev: await gerarOtp(whatsapp, "login") });
+  } catch (e) { erro(res, e); }
+});
+
 // ---------- Assinatura ----------
-rotas.get("/planos", (req, res) => res.json(config.planos));
+rotas.get("/planos", (req, res) => res.json({ ...config.planos, diasTeste: config.diasTeste }));
 
 rotas.post("/assinatura", async (req, res) => {
   try {

@@ -18,7 +18,7 @@ async function api(caminho, opcoes = {}) {
   });
   const dados = await r.json().catch(() => ({}));
   if (r.status === 401) { mostrarLogin(); throw new Error(dados.erro); }
-  if (r.status === 402) { location.href = "/assinar"; throw new Error(dados.erro); }
+  if (r.status === 402) { location.href = "/assinar?expirou=1"; throw new Error(dados.erro); }
   if (r.status === 428) { const okc = await confirmarComCodigo(); if (okc) return api(caminho, opcoes); throw new Error("Confirmação cancelada"); }
   if (!r.ok) throw new Error(dados.erro || "Algo deu errado");
   return dados;
@@ -62,7 +62,7 @@ function mostrarLogin() {
       <label for="w">Seu WhatsApp</label>
       <input id="w" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-0000">
       <button class="btn primary block mt" id="enviar">Receber código no WhatsApp</button>
-      <p class="center mt"><small>Ainda não assinou? <a href="/assinar">Assinar a RevendIA</a></small></p>
+      <p class="center mt"><small>Ainda não tem conta? <a href="/assinar">Teste grátis por 7 dias</a></small></p>
     </div>
     <div class="card hidden" id="passo2">
       <p>Digite o código de 6 números que enviamos no seu WhatsApp:</p>
@@ -186,7 +186,9 @@ async function telaHoje() {
   const h = await api("/hoje");
   const nome = conta.nome.split(" ")[0];
   const saud = new Date().getHours() < 12 ? "Bom dia" : new Date().getHours() < 18 ? "Boa tarde" : "Boa noite";
+  const diasTeste = conta.assinatura_status === "teste" ? Math.max(0, Math.ceil((new Date(conta.assinatura_ate) - Date.now()) / 86400000)) : null;
   tela.innerHTML = `
+    ${diasTeste !== null && diasTeste <= 30 ? `<div class="card row between"><div><b>Teste grátis</b><br><small>${diasTeste === 0 ? "termina hoje" : `faltam ${diasTeste} dia${diasTeste > 1 ? "s" : ""}`}. Depois, é só escolher um plano no PIX ou cartão.</small></div><a class="btn sm primary" href="/assinar">Assinar</a></div>` : ""}
     <div class="card hero">
       <p class="muted" style="margin:0">${saud}, ${esc(nome)} 💛</p>
       <h1 style="margin:.2em 0 .6em">${h.boletos.length || h.entregas.length ? "Hoje você só precisa disso:" : "Nada com você hoje. A IA cuida do resto!"}</h1>

@@ -15,11 +15,17 @@
 <header class="top"><div class="wrap"><a class="logo" href="/" style="text-decoration:none"><span class="logo-mark">R</span>RevendIA</a></div></header>
 <main class="wrap">
   <div id="form">
-    <h1>Assine e coloque sua revenda no automático</h1>
-    <p class="muted">Depois do pagamento, você entra no app só com seu WhatsApp e um código.</p>
+    <div class="card hidden" id="expirou"><b>Seu teste grátis terminou.</b><br><small>Escolha um plano abaixo para continuar com tudo no automático. Seus dados continuam salvos.</small></div>
+    <h1>Coloque sua revenda no automático</h1>
+    <p class="muted">Teste grátis por 7 dias, sem cartão. Você entra só com seu WhatsApp e um código.</p>
     <div class="card">
       <label for="nome">Seu nome</label><input id="nome" autocomplete="name" placeholder="Como você quer ser chamada">
       <label for="whats">Seu WhatsApp</label><input id="whats" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-0000">
+      <button class="btn primary block mt" id="teste">Começar teste grátis de 7 dias</button>
+      <p class="center"><small>Sem cartão e sem compromisso. No fim do teste, você escolhe se quer assinar.</small></p>
+    </div>
+    <div class="card" id="bloco-planos">
+      <h2>Ou assine agora</h2>
       <label>Plano</label>
       <div class="grid2" id="planos">
         <div class="opcao on" data-plano="mensal"><b>Mensal</b><br><span data-v="mensal">R$ 79,90</span><small>/mês</small></div>
@@ -33,6 +39,12 @@
       <button class="btn primary block mt" id="pagar">Continuar para o pagamento</button>
       <p class="center"><small>🔒 Pagamento processado pelo Mercado Pago.</small></p>
     </div>
+  </div>
+  <div id="codigoTeste" class="hidden card center">
+    <h2>Confirme seu WhatsApp</h2><p class="muted">Enviamos um código de 6 números no seu WhatsApp.</p>
+    <input id="otp" inputmode="numeric" maxlength="6" placeholder="Código" style="text-align:center;font-size:1.4rem;letter-spacing:.3em">
+    <p id="otpdev"></p>
+    <button class="btn primary block mt" id="confirmar">Começar meu teste</button>
   </div>
   <div id="pix" class="hidden card center">
     <h2>Pague com PIX</h2><p class="muted">Abra o app do seu banco, escolha PIX copia e cola ou leia o QR Code.</p>
@@ -53,6 +65,29 @@ document.querySelectorAll("#planos .opcao").forEach((o) => (o.onclick = () => { 
 document.querySelectorAll("#metodos .opcao").forEach((o) => (o.onclick = () => { metodo = o.dataset.metodo; marcar("#metodos", "metodo", metodo); }));
 fetch("/api/planos").then((r) => r.json()).then((p) => { for (const k of ["mensal", "anual"]) $(`[data-v="${k}"]`).textContent = p[k].valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }); });
 
+if (new URLSearchParams(location.search).get("expirou")) { $("#expirou").classList.remove("hidden"); $("#teste").classList.add("hidden"); $("#teste").nextElementSibling.classList.add("hidden"); }
+async function postar(url, corpo) {
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo) });
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.erro || "Algo deu errado");
+  return d;
+}
+$("#teste").onclick = async () => {
+  const b = $("#teste"); b.disabled = true;
+  try {
+    const d = await postar("/api/teste", { nome: $("#nome").value, whatsapp: $("#whats").value });
+    localStorage.setItem("rv_whatsapp", $("#whats").value);
+    $("#form").classList.add("hidden"); $("#codigoTeste").classList.remove("hidden"); $("#otp").focus();
+    if (d.codigoDev) $("#otpdev").innerHTML = `<small>Ambiente de teste — código: <b>${d.codigoDev}</b></small>`;
+  } catch (e) { alert(e.message); } finally { b.disabled = false; }
+};
+$("#confirmar").onclick = async () => {
+  const b = $("#confirmar"); b.disabled = true;
+  try {
+    await postar("/api/auth/verificar", { whatsapp: $("#whats").value, codigo: $("#otp").value });
+    location.href = "/app/#configurar";
+  } catch (e) { alert(e.message); } finally { b.disabled = false; }
+};
 async function pagar() {
   const b = $("#pagar"); b.disabled = true;
   try {

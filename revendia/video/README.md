@@ -5,7 +5,7 @@ O vídeo final fica em `../public/video/revendia_explicativo.mp4` (servido na la
 
 Roteiro em duas partes:
 - **ANTES** (tons frios/dessaturados, câmera tremendo, relógio tique-taque): a revendedora cansada à noite, caderno + app da marca + calculadora, clientes reclamando, sem posts e sem saber o lucro.
-- **DEPOIS** (cores quentes, groove pop): logo RevendIA, cadastro (WhatsApp + código + Pix/cartão), conexão Boticário/Natura/Avon/Eudora + catálogo, pedido no WhatsApp repassado à marca, boletos do dia + pagamento identificado, aviso ao cliente, motoboy, Instagram automático, campanhas na lista de transmissão, financeiro, agentes de IA por área (Marketing, Comercial, Operações, Financeiro), assistente de voz, fechamento e cartela final ("Assine no PIX ou cartão" · revendia.com.br).
+- **DEPOIS** (cores quentes, groove pop): logo RevendIA, cadastro (WhatsApp + código + Pix/cartão), conexão Boticário/Natura/Avon/Eudora + catálogo, pedido no WhatsApp repassado à marca, boletos do dia + pagamento identificado, aviso ao cliente, motoboy, Instagram automático, campanhas na lista de transmissão, financeiro, agentes de IA por área (Marketing, Comercial, Operações, Financeiro), assistente de voz, fechamento e cartela final ("Teste 7 dias grátis" · revendia.com.br).
 
 ## Como regerar
 
