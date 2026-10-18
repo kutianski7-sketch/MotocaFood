@@ -11,7 +11,7 @@ Esta skill existe para que a primeira versão já saia no tom e com os fatos cer
 ## Quando usar
 
 - Pedirem **roteiro de Reels/TikTok**, **legenda de post/carrossel** ou **mensagem de WhatsApp** do Motoca Food.
-- O público é o **motoboy** (o "Motoca"): baixar o app, usar os descontos, indicar parceiros.
+- O público é o **Motoca**: entregador (iFood, Rappi e outros) e motorista de app (Uber, 99 e outros). O objetivo é ele entrar no mapa, indicar e avaliar lugares.
 - Pedirem "o mesmo tema em vários formatos": entregue os três, coerentes entre si.
 
 **Não use** para abordar dono de restaurante ou oficina, para anúncio pago ou para texto jurídico.
@@ -19,21 +19,22 @@ Nesses casos, avise que a skill é para falar com o Motoca e pergunte se quer se
 
 ## Ficha da marca (a única fonte de fatos)
 
-| O que é | Central de parceiros com descontos para motoboys. "O primeiro e único app que se importa de verdade com o Motoca." |
+| O que é | Mapa de lugares baratos para quem roda na rua: **restaurantes, padarias, borracharias, oficinas e postos**, indicados e avaliados pelos próprios motoboys e motoristas, com nota e comentários. "O primeiro app a se importar com o Motoca!" |
 |---|---|
-| 1ª fase (já tem) | Restaurantes com almoço e jantar **por até R$20**; borracharias, mecânicos e guinchos baratos |
-| Em breve | Postos de gasolina, advogados, médicos e contadores com preço baixo |
-| Preço | **Acesso gratuito** para o Motoca e para os parceiros |
-| Papel do Motoca | **Agente multiplicador**: chama o restaurante onde já come, o borracheiro e o mecânico pra virar parceiro |
-| Como indicar | O Motoca manda **nome + bairro** do lugar (nos comentários ou no direct). Não existe link nem formulário de indicação. |
-| Como o parceiro entra | A equipe pesquisa os lugares (com ajuda de IA), **confere se o almoço/jantar sai por até R$20** e cadastra na plataforma. O Motoca não cadastra nada. |
+| Para quem | Entregadores de iFood, Rappi e outros apps, e motoristas de Uber, 99 e outros apps |
+| Como entra | Em **motocafood.com.br** → "Sou entregador ou motorista" → entra com o **Google** → completa os dados |
+| Como indica | No próprio site/app: **cadastra o lugar** no mapa, dá **nota** e deixa **comentário**. Nos posts, "comenta o nome e o bairro" vale como engajamento, mas a ação principal é colocar no mapa. |
+| Preço do app | **"Uso gratuito neste primeiro mês"** (texto do site em 18/10/2026). Nunca diga "grátis pra sempre". |
+| Preço da comida | Fale em **"comida barata"** e "a galera indica onde é mais barato". **Não prometa valor fixo** (o "até R$20" do Reels de lançamento não está no site e o PF médio em SP é R$39,10 — Procon-SP/Dieese, jun/2026). |
+| Papel do Motoca | **Agente multiplicador**: indica os lugares bons e baratos e avalia onde foi. "Feito pelos motoboys, para os motoboys." |
 | Cidade foco | **São Paulo (capital)** neste início. Nada de falar como se o app já estivesse em outras cidades. |
 | Causa | "Chegou a hora de o Motoca ter qualidade de vida e ser ouvido!" |
-| Site | motocafood.com.br |
+| Site e perfil | motocafood.com.br · Instagram @motocafood |
 
-Fato que não está nesta tabela (nome de parceiro, bairro, preço exato, data, cupom, @ ou número de contato) **só entra se o usuário informar**.
-Se precisar dele e ele não veio, deixe um marcador visível, como `[@ DO INSTAGRAM]` ou `[NOME DO RESTAURANTE]`, e liste o que falta no final.
-Parceiro citado pelo nome tem que estar com status **`Parceiro confirmado`** na planilha da skill `motocafood-parceiros` (restaurante só "Encontrado" ou "cadastrado" não conta). Preço achado na internet ou por IA é só pista, não fato.
+O site (motocafood.com.br) é a fonte da verdade: se ele mudar, atualize esta ficha antes de escrever.
+Fato que não está nesta tabela (nome de lugar, bairro, preço exato, data, número de usuários) **só entra se o usuário informar**.
+Se precisar dele e ele não veio, deixe um marcador visível, como `[NOME DO LUGAR]`, e liste o que falta no final.
+Lugar citado pelo nome tem que **estar no mapa**, e quem indicou só é citado com autorização. Preço achado na internet ou por IA é só pista, não fato.
 
 ## Tom de voz: gíria de motoboy
 
@@ -42,7 +43,7 @@ Parceiro citado pelo nome tem que estar com status **`Parceiro confirmado`** na 
 - Fechamento de assinatura: **"Bora acelerar, Motoca! Chegou a nossa vez!"**
 - Linguagem de rua e de corredor: "pra", "tá", "corre", "rolê", "na pista", "no grau", "parça", "rango", "bater o rango". Escreva como um Motoca falando com outro, não como uma empresa falando com o público.
 - Sotaque de São Paulo, sem exagero: "mano", "quebrada", "da hora", "trampo". Cite as regiões pelo nome que o Motoca usa (zona leste, zona sul, centro, Marginal) quando ajudar.
-- A ação de indicar é sempre simples: **"comenta o nome e o bairro"** ou **"manda no direct"**. Nunca peça para baixar algo, preencher formulário ou cadastrar o restaurante.
+- A ação é sempre simples: **"coloca no mapa em motocafood.com.br"** (link na bio) ou, para engajar, **"comenta o nome e o bairro"**.
 - Frases curtas, uma ideia por frase. Na fala, nada que trave a língua.
 - O Motoca é protagonista e dono da causa ("a nossa vez"), nunca coitado.
 
@@ -84,13 +85,15 @@ Texto na tela, por cartela: `FALA, MOTOCAS!` → `MOTOCA FOOD` → `1º E ÚNICO
 
 Por que funciona: abre com a assinatura, traz um número concreto (R$20), dá ao Motoca um papel ("agente multiplicador") e fecha com causa e assinatura.
 
+**Atenção:** este Reels é anterior ao site. Duas frases dele não batem com a ficha atual: "acesso gratuito" (o site diz "gratuito neste primeiro mês") e "até vinte reais" (o site não promete preço). Use como modelo de **ritmo e tom**, não de fatos. Exemplos alinhados ao site estão em `marketing/instagram/` (Reels "Como funciona" e "Quanto custa o PF").
+
 ## O que nunca fazer
 
 - **Nunca inventar** parceiro, bairro, preço, desconto em %, cupom, data ou número de usuários. Na dúvida, use um marcador `[...]`.
 - **Nunca anunciar** restaurante como parceiro, nem prometer desconto nele, antes de ele estar como `Parceiro confirmado` (alguém da equipe falou com o lugar e ele topou).
 - **Nunca falar** como se o app já atendesse fora da cidade de São Paulo.
 - **Nunca prometer** o que ainda é "em breve" (postos, advogados, médicos, contadores) como se já existisse.
-- **Nunca cobrar nem insinuar custo**: o acesso é gratuito para o Motoca e para os parceiros.
+- **Nunca prometer gratuidade além do que o site diz** ("uso gratuito neste primeiro mês"), nem falar em cobrança futura antes de ela ser anunciada no site.
 - **Nunca incentivar** pressa, excesso de velocidade, manobra arriscada, celular na mão pilotando ou furar sinal. "Bora acelerar" é sobre a causa, não sobre a pista. Cenas sempre com capacete.
 - **Nunca atacar concorrentes** pelo nome (iFood, Rappi, Uber, 99 etc.). Fale do que o Motoca Food faz, não do que os outros não fazem.
 - **Nunca tratar o Motoca como coitado** nem usar linguagem de ONG ou de pena. É orgulho, não caridade.

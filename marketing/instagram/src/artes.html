@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Motoca Food — artes Instagram</title>
+<!-- Cada .peca vira um PNG (render.js). data-nome = arquivo; tamanho pela classe f45 (1080x1350) ou f916 (1080x1920). -->
+<style>
+  :root {
+    --laranja: #FF6B00;
+    --amarelo: #FFC400;
+    --asfalto: #15151C;
+    --branco: #FFFFFF;
+    --verde: #00C26E;
+    --cinza: #A9A9B8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #333; font-family: "Inter", "Inter Display", sans-serif; font-weight: 900; color: var(--branco); }
+  .emoji { font-family: "Noto Color Emoji"; font-weight: 400; font-style: normal; }
+  .peca { position: relative; overflow: hidden; margin: 40px; background: var(--asfalto); }
+  .f45 { width: 1080px; height: 1350px; }
+  .f916 { width: 1080px; height: 1920px; }
+  .laranja { background: var(--laranja); }
+  .amarelo { background: var(--amarelo); color: var(--asfalto); }
+
+  /* faixas de asfalto */
+  .faixa { position: absolute; left: 0; right: 0; height: 26px;
+           background: repeating-linear-gradient(90deg, var(--amarelo) 0 90px, transparent 90px 150px); opacity: .9; }
+
+  .logo { display: inline-flex; align-items: center; gap: 16px; background: var(--laranja);
+          padding: 16px 30px 16px 20px; border-radius: 28px; box-shadow: 0 10px 0 rgba(0,0,0,.28); }
+  .logo .roda { width: 64px; height: 64px; border-radius: 50%; background: var(--asfalto);
+                border: 8px solid var(--amarelo); position: relative; }
+  .logo .roda::after { content: ""; position: absolute; inset: 16px; border-radius: 50%; background: var(--amarelo); }
+  .logo .txt { font-style: italic; font-size: 54px; line-height: .9; letter-spacing: -1px; text-align: left; }
+  .logo .txt b { color: var(--amarelo); display: block; }
+  .logo.escuro { background: var(--asfalto); }
+
+  .topo { position: absolute; top: 56px; left: 64px; right: 64px; display: flex; justify-content: space-between; align-items: center; }
+  .pag { font-size: 34px; color: var(--cinza); font-weight: 700; }
+  .rodape { position: absolute; bottom: 52px; left: 64px; right: 64px; display: flex; justify-content: space-between;
+            align-items: center; font-size: 34px; font-weight: 700; color: var(--cinza); }
+  .rodape .seta { color: var(--amarelo); font-size: 40px; font-weight: 900; }
+
+  .miolo { position: absolute; left: 64px; right: 64px; top: 220px; }
+  .chip { display: inline-block; padding: 14px 30px; border-radius: 999px; font-size: 36px; letter-spacing: 1px;
+          text-transform: uppercase; background: var(--amarelo); color: var(--asfalto); font-style: italic; }
+  .chip.l { background: var(--laranja); color: var(--branco); }
+  h1 { font-family: "Inter Display", "Inter"; font-size: 118px; line-height: .92; letter-spacing: -3px;
+       text-transform: uppercase; font-style: italic; margin-top: 34px; }
+  h1 .y { color: var(--amarelo); }
+  h1 .o { color: var(--laranja); }
+  h2 { font-family: "Inter Display", "Inter"; font-size: 92px; line-height: .95; letter-spacing: -2px;
+       text-transform: uppercase; font-style: italic; margin-top: 30px; }
+  h2 .y { color: var(--amarelo); }
+  p.txt { font-size: 46px; line-height: 1.22; font-weight: 600; margin-top: 36px; color: #E9E9F0; letter-spacing: -.5px; }
+  p.txt b { color: var(--amarelo); font-weight: 900; }
+
+  .num { position: absolute; right: 40px; top: 120px; font-family: "Inter Display"; font-style: italic;
+         font-size: 520px; line-height: 1; color: rgba(255,255,255,.06); letter-spacing: -20px; }
+
+  .card { display: flex; align-items: center; gap: 30px; background: #fff; color: var(--asfalto);
+          border-radius: 34px; padding: 22px 36px 22px 24px; box-shadow: 0 12px 0 rgba(0,0,0,.25); margin-top: 26px; }
+  .card .ic { width: 116px; height: 116px; border-radius: 28px; display: grid; place-items: center; font-size: 72px; flex: none; }
+  .card .t { font-size: 54px; font-style: italic; letter-spacing: -1px; text-transform: uppercase; line-height: 1; }
+  .card .t small { display: block; font-size: 30px; font-style: normal; color: #666; letter-spacing: 0; font-weight: 700;
+                   text-transform: none; margin-top: 8px; }
+
+  /* celular */
+  .cel { position: absolute; width: 470px; height: 820px; border-radius: 62px; background: #0b0b10; padding: 20px;
+         box-shadow: 0 26px 0 rgba(0,0,0,.35); }
+  .tela { width: 100%; height: 100%; border-radius: 44px; overflow: hidden; position: relative; background: #f4f4f6; color: var(--asfalto); }
+  .tela .bar { background: var(--laranja); height: 120px; display: flex; align-items: center; justify-content: center;
+               font-size: 40px; font-style: italic; color: #fff; }
+  .tela .bar span { color: var(--amarelo); margin-left: 10px; }
+  .mapa { position: absolute; inset: 120px 0 0 0;
+          background:
+            linear-gradient(90deg, transparent 47%, #fff 47% 53%, transparent 53%),
+            linear-gradient(0deg, transparent 30%, #fff 30% 35%, transparent 35% 68%, #fff 68% 73%, transparent 73%),
+            linear-gradient(35deg, transparent 60%, #fff 60% 64%, transparent 64%),
+            #dfe6d8; }
+  .pin { position: absolute; width: 74px; height: 74px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
+         background: var(--laranja); box-shadow: 0 6px 0 rgba(0,0,0,.25); display: grid; place-items: center; }
+  .pin i { transform: rotate(45deg); font-size: 38px; font-style: normal; font-family: "Noto Color Emoji"; font-weight: 400; }
+  .bolha { position: absolute; left: 24px; right: 24px; bottom: 26px; background: #fff; border-radius: 26px;
+           padding: 20px 24px; box-shadow: 0 8px 20px rgba(0,0,0,.18); font-size: 30px; line-height: 1.15; }
+  .bolha .est { color: var(--laranja); font-size: 30px; }
+  .bolha small { display: block; font-weight: 600; color: #666; font-size: 24px; margin-top: 6px; }
+
+  .botao { display: inline-block; background: var(--amarelo); color: var(--asfalto); border-radius: 26px; padding: 26px 44px;
+           font-size: 52px; font-style: italic; text-transform: uppercase; letter-spacing: -1px; box-shadow: 0 12px 0 rgba(0,0,0,.3); }
+  .url { font-size: 64px; letter-spacing: -1px; margin-top: 30px; }
+
+  /* stories: zona segura (topo 250px e base 340px livres) */
+  .s-miolo { position: absolute; left: 70px; right: 70px; top: 280px; }
+  .sticker-zona { position: absolute; left: 140px; right: 140px; height: 300px; }
+  .dica { font-size: 34px; font-weight: 700; color: var(--cinza); margin-top: 26px; }
+
+  .lista .card { margin-top: 18px; padding: 12px 30px 12px 14px; }
+  .lista .card .ic { width: 96px; height: 96px; font-size: 58px; }
+  .lista .card .t { font-size: 50px; }
+  .grande p.txt { font-size: 54px; }
+
+  /* capa de reels: texto dentro do recorte 1080x1350 do grid (y 285..1635) */
+  .capa h1 { font-size: 136px; }
+</style>
+</head>
+<body>
+
+<!-- ================= CARROSSEL 1: COMO FUNCIONA ================= -->
+<section class="peca f45 laranja" data-nome="carrossel-como-funciona/01">
+  <div class="faixa" style="top:1150px"></div>
+  <div class="topo"><div class="logo escuro"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag" style="color:#ffe1c9">1/7</div></div>
+  <div class="miolo" style="top:270px">
+    <span class="chip">Pra quem roda o dia todo</span>
+    <h1>Comida<br><span class="y">barata</span><br>perto de<br>você</h1>
+    <p class="txt" style="color:#fff">Como funciona o Motoca Food, em 3 passos.</p>
+  </div>
+  <div class="rodape" style="color:#ffe1c9"><span>@motocafood</span><span class="seta" style="color:#fff">ARRASTA ➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-como-funciona/02">
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">2/7</div></div>
+  <div class="miolo">
+    <span class="chip l">Pra quem é</span>
+    <h2>Feito pelos motoboys,<br><span class="y">pros motoboys</span></h2>
+    <div class="card"><div class="ic amarelo"><span class="emoji">🛵</span></div><div class="t">Entregador<small>iFood, Rappi e outros apps</small></div></div>
+    <div class="card"><div class="ic amarelo"><span class="emoji">🚗</span></div><div class="t">Motorista<small>Uber, 99 e outros apps</small></div></div>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-como-funciona/03">
+  <div class="num">1</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">3/7</div></div>
+  <div class="miolo">
+    <span class="chip">Passo 1</span>
+    <h2>Entra com<br><span class="y">o Google</span></h2>
+    <p class="txt">Abre o <b>motocafood.com.br</b>, toca em <b>"Sou entregador ou motorista"</b> e completa seus dados.</p>
+    <div style="margin-top:60px"><span class="botao">Sou entregador ou motorista</span></div>
+    <p class="txt">Cadastro rápido: entrou com o Google, completou os dados, já tá no mapa.</p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-como-funciona/04">
+  <div class="num">2</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">4/7</div></div>
+  <div class="miolo" style="right:560px">
+    <span class="chip">Passo 2</span>
+    <h2>Abre<br>o <span class="y">mapa</span></h2>
+    <p class="txt">Os lugares que a galera indicou <b>perto de você</b>, com <b>nota</b> e <b>comentários</b>.</p>
+    <p class="txt">Achou perto, gastou pouco.</p>
+  </div>
+  <div class="cel" style="right:64px;top:250px">
+    <div class="tela"><div class="bar">MOTOCA<span>FOOD</span></div>
+      <div class="mapa">
+        <div class="pin" style="left:80px;top:90px"><i>🍛</i></div>
+        <div class="pin" style="left:290px;top:60px;background:var(--amarelo)"><i>🛞</i></div>
+        <div class="pin" style="left:200px;top:250px"><i>🥖</i></div>
+        <div class="pin" style="left:330px;top:330px;background:var(--verde)"><i>⛽</i></div>
+        <div class="pin" style="left:60px;top:380px;background:var(--amarelo)"><i>🔧</i></div>
+        <div class="bolha">🍛 PF da esquina <span class="est">★★★★☆</span><small>"Rango bom e barato, atende rápido"</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-como-funciona/05">
+  <div class="num">3</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">5/7</div></div>
+  <div class="miolo">
+    <span class="chip">Passo 3</span>
+    <h2>Indica e<br><span class="y">avalia</span></h2>
+    <div class="card"><div class="ic amarelo"><span class="emoji">📍</span></div><div class="t">Achou lugar bom e barato?<small>Cadastra e coloca no mapa pra galera</small></div></div>
+    <div class="card"><div class="ic amarelo"><span class="emoji">⭐</span></div><div class="t">Foi num lugar?<small>Dá sua nota e deixa seu comentário</small></div></div>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-como-funciona/06">
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">6/7</div></div>
+  <div class="miolo">
+    <span class="chip l">O que tem no mapa</span>
+    <h2>Comer, consertar<br>e <span class="y">abastecer</span></h2>
+    <div class="lista">
+      <div class="card"><div class="ic amarelo"><span class="emoji">🍛</span></div><div class="t">Restaurantes</div></div>
+      <div class="card"><div class="ic amarelo"><span class="emoji">🥖</span></div><div class="t">Padarias</div></div>
+      <div class="card"><div class="ic amarelo"><span class="emoji">🛞</span></div><div class="t">Borracharias</div></div>
+      <div class="card"><div class="ic amarelo"><span class="emoji">🔧</span></div><div class="t">Oficinas</div></div>
+      <div class="card"><div class="ic amarelo"><span class="emoji">⛽</span></div><div class="t">Postos</div></div>
+    </div>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45 amarelo" data-nome="carrossel-como-funciona/07">
+  <div class="faixa" style="top:150px;background:repeating-linear-gradient(90deg,var(--asfalto) 0 90px,transparent 90px 150px)"></div>
+  <div class="miolo" style="top:260px;text-align:center">
+    <span class="chip l">Uso gratuito neste primeiro mês</span>
+    <h1 style="color:var(--asfalto)">Bora pro<br><span class="o">mapa,</span><br>Motoca!</h1>
+    <div class="url" style="color:var(--asfalto)">motocafood.com.br</div>
+    <p class="txt" style="color:var(--asfalto);font-weight:700">🔗 Link na bio · Salva e manda pro parça</p>
+  </div>
+  <div class="rodape" style="color:var(--asfalto)"><span>@motocafood</span><span>7/7</span></div>
+</section>
+
+<!-- ================= CARROSSEL 2: INDICA A SUA QUEBRADA ================= -->
+<section class="peca f45 laranja" data-nome="carrossel-indica-quebrada/01">
+  <div class="faixa" style="top:1150px"></div>
+  <div class="topo"><div class="logo escuro"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag" style="color:#ffe1c9">1/5</div></div>
+  <div class="miolo" style="top:280px">
+    <span class="chip">Pergunta séria</span>
+    <h1>Qual é o<br><span class="y">rango</span> mais<br>barato da sua<br>quebrada?</h1>
+  </div>
+  <div class="rodape" style="color:#ffe1c9"><span>Responde nos comentários</span><span class="seta" style="color:#fff">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-indica-quebrada/02">
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">2/5</div></div>
+  <div class="miolo">
+    <h2>Todo Motoca<br>conhece <span class="y">aquele<br>lugar</span></h2>
+    <p class="txt">O PF que salva o dia. A padaria que abre cedo. O borracheiro que resolve na hora. O posto que não pesa no bolso.</p>
+    <p class="txt"><b>Isso não pode ficar só com você.</b></p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-indica-quebrada/03">
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">3/5</div></div>
+  <div class="miolo">
+    <span class="chip">Coloca no mapa</span>
+    <h2>Leva 1 minuto</h2>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">1</div><div class="t">Entra no site<small>motocafood.com.br, com o Google</small></div></div>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">2</div><div class="t">Indica o lugar<small>restaurante, padaria, borracharia, oficina ou posto</small></div></div>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">3</div><div class="t">Dá a nota<small>e conta o que achou</small></div></div>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45" data-nome="carrossel-indica-quebrada/04">
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">4/5</div></div>
+  <div class="miolo" style="top:300px">
+    <h2>Cada indicação<br>ajuda <span class="y">um parça</span><br>a gastar menos</h2>
+    <p class="txt">Quanto mais Motoca indica e avalia, mais completo fica o mapa — e mais fácil fica achar comida boa e barata em qualquer canto da cidade.</p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45 amarelo" data-nome="carrossel-indica-quebrada/05">
+  <div class="miolo" style="top:250px;text-align:center">
+    <span class="chip l">Sua vez</span>
+    <h1 style="color:var(--asfalto)">Comenta o<br><span class="o">nome</span> e o<br><span class="o">bairro</span></h1>
+    <p class="txt" style="color:var(--asfalto);font-weight:700">…e coloca no mapa em<br><b style="color:var(--laranja)">motocafood.com.br</b></p>
+    <p class="txt" style="color:var(--asfalto);font-weight:700">Uso gratuito neste primeiro mês</p>
+  </div>
+  <div class="rodape" style="color:var(--asfalto)"><span>@motocafood</span><span>5/5</span></div>
+</section>
+
+<!-- ================= CARROSSEL 3: DICAS PRA ECONOMIZAR NO CORRE ================= -->
+<section class="peca f45 laranja" data-nome="carrossel-economizar-no-corre/01">
+  <div class="faixa" style="top:1150px"></div>
+  <div class="topo"><div class="logo escuro"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag" style="color:#ffe1c9">1/6</div></div>
+  <div class="miolo" style="top:280px">
+    <span class="chip">Salva esse post</span>
+    <h1>5 jeitos de<br><span class="y">gastar menos</span><br>no corre</h1>
+  </div>
+  <div class="rodape" style="color:#ffe1c9"><span>@motocafood</span><span class="seta" style="color:#fff">ARRASTA ➜</span></div>
+</section>
+
+<section class="peca f45 grande" data-nome="carrossel-economizar-no-corre/02" >
+  <div class="num">1</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">2/6</div></div>
+  <div class="miolo">
+    <span class="emoji" style="font-size:120px">🛞</span>
+    <h2>Pneu<br><span class="y">calibrado</span></h2>
+    <p class="txt">Pneu murcho gasta mais combustível e desgasta mais rápido. Confere a calibragem toda semana, com o pneu frio.</p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45 grande" data-nome="carrossel-economizar-no-corre/03" >
+  <div class="num">2</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">3/6</div></div>
+  <div class="miolo">
+    <span class="emoji" style="font-size:120px">⛓️</span>
+    <h2>Corrente<br><span class="y">lubrificada</span></h2>
+    <p class="txt">Corrente seca rouba força da moto e acaba com a relação. Limpa e lubrifica com frequência — sai bem mais barato que trocar o kit.</p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45 grande" data-nome="carrossel-economizar-no-corre/04" >
+  <div class="num">3</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">4/6</div></div>
+  <div class="miolo">
+    <span class="emoji" style="font-size:120px">💧</span>
+    <h2>Garrafa<br><span class="y">no baú</span></h2>
+    <p class="txt">Água comprada na rua todo dia pesa no fim do mês. Leva uma garrafa e enche onde der. Hidratado você rende mais e roda mais seguro.</p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45 grande" data-nome="carrossel-economizar-no-corre/05" >
+  <div class="num">4</div>
+  <div class="topo"><div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div><div class="pag">5/6</div></div>
+  <div class="miolo">
+    <span class="emoji" style="font-size:120px">📒</span>
+    <h2>Anota<br><span class="y">o gasto do dia</span></h2>
+    <p class="txt">Combustível, rango, manutenção. Quem anota descobre pra onde o dinheiro vai — e para de trabalhar só pra pagar a moto.</p>
+  </div>
+  <div class="rodape"><span>@motocafood</span><span class="seta">➜</span></div>
+</section>
+
+<section class="peca f45 amarelo" data-nome="carrossel-economizar-no-corre/06">
+  <div class="num" style="color:rgba(0,0,0,.07)">5</div>
+  <div class="miolo" style="top:230px">
+    <span class="emoji" style="font-size:120px">🗺️</span>
+    <h2 style="color:var(--asfalto)">Come onde<br><span style="color:var(--laranja)">a galera indica</span></h2>
+    <p class="txt" style="color:var(--asfalto);font-weight:700">No Motoca Food, os próprios motoboys indicam e avaliam lugares baratos pra comer, consertar a moto e abastecer.</p>
+    <p class="txt" style="color:var(--asfalto)"><b style="color:var(--laranja)">motocafood.com.br</b> · link na bio</p>
+  </div>
+  <div class="rodape" style="color:var(--asfalto)"><span>Manda pro parça que precisa ver isso</span><span>6/6</span></div>
+</section>
+
+<!-- ================= STORIES: SEQUÊNCIA DE APRESENTAÇÃO ================= -->
+<section class="peca f916 laranja" data-nome="stories-apresentacao/01">
+  <div class="faixa" style="top:1500px"></div>
+  <div class="s-miolo" style="top:420px;text-align:center">
+    <div class="logo escuro"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div>
+    <h1 style="margin-top:80px">Fala,<br><span class="y">Motocas!</span></h1>
+    <p class="txt" style="color:#fff;font-size:54px">Chegou o app que se importa<br>de verdade com quem roda.</p>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="stories-apresentacao/02">
+  <div class="s-miolo" style="text-align:center">
+    <span class="chip">Enquete</span>
+    <h2 style="margin-top:50px">Quanto você<br>gasta no <span class="y">rango</span><br>no corre?</h2>
+  </div>
+  <div class="sticker-zona" style="top:1050px"></div>
+</section>
+
+<section class="peca f916" data-nome="stories-apresentacao/03">
+  <div class="s-miolo">
+    <span class="chip l">Como funciona</span>
+    <h2 style="font-size:100px">Comida barata<br>indicada pelos<br><span class="y">próprios motoboys</span></h2>
+  </div>
+  <div class="cel" style="left:305px;top:860px;height:760px">
+    <div class="tela"><div class="bar">MOTOCA<span>FOOD</span></div>
+      <div class="mapa">
+        <div class="pin" style="left:80px;top:80px"><i>🍛</i></div>
+        <div class="pin" style="left:290px;top:60px;background:var(--amarelo)"><i>🛞</i></div>
+        <div class="pin" style="left:200px;top:230px"><i>🥖</i></div>
+        <div class="pin" style="left:320px;top:310px;background:var(--verde)"><i>⛽</i></div>
+        <div class="bolha">🍛 PF da esquina <span class="est">★★★★☆</span><small>"Rango bom e barato"</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="stories-apresentacao/04">
+  <div class="s-miolo">
+    <span class="chip">É rapidinho</span>
+    <h2>3 passos</h2>
+    <div class="card" style="margin-top:50px"><div class="ic amarelo" style="font-size:60px">1</div><div class="t">Entra com Google<small>em motocafood.com.br</small></div></div>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">2</div><div class="t">Abre o mapa<small>lugares perto de você, com nota</small></div></div>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">3</div><div class="t">Indica e avalia<small>e ajuda a galera a escolher</small></div></div>
+  </div>
+</section>
+
+<section class="peca f916 amarelo" data-nome="stories-apresentacao/05">
+  <div class="s-miolo" style="text-align:center;top:360px">
+    <span class="chip l">Uso gratuito neste primeiro mês</span>
+    <h1 style="color:var(--asfalto);margin-top:60px">Toca no<br><span class="o">link</span> e<br>entra no<br>mapa</h1>
+  </div>
+  <div class="sticker-zona" style="top:1300px"></div>
+</section>
+
+<section class="peca f916" data-nome="stories-apresentacao/06">
+  <div class="s-miolo" style="text-align:center">
+    <span class="chip">Tira sua dúvida</span>
+    <h2 style="margin-top:50px">Pergunta<br><span class="y">qualquer coisa</span><br>pra gente</h2>
+  </div>
+  <div class="sticker-zona" style="top:1050px"></div>
+</section>
+
+<!-- ================= CAPAS DE REELS ================= -->
+<section class="peca f916 laranja capa" data-nome="capas-reels/01-lancamento">
+  <div class="s-miolo" style="top:640px;text-align:center">
+    <div class="logo escuro"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div>
+    <h1 style="margin-top:60px">Chegou o<br><span class="y">Motoca</span><br>Food</h1>
+  </div>
+</section>
+
+<section class="peca f916 capa" data-nome="capas-reels/02-como-funciona">
+  <div class="s-miolo" style="top:640px;text-align:center">
+    <span class="chip">Em 20 segundos</span>
+    <h1 style="margin-top:50px">Como<br>funciona<br>o <span class="y">Motoca<br>Food</span></h1>
+  </div>
+</section>
+
+<section class="peca f916 amarelo capa" data-nome="capas-reels/03-onde-comer-barato">
+  <div class="s-miolo" style="top:640px;text-align:center">
+    <span class="chip l">Motoboy · Uber · 99</span>
+    <h1 style="color:var(--asfalto);margin-top:50px">Onde<br>comer<br><span class="o">barato</span><br>no corre?</h1>
+  </div>
+</section>
+
+<section class="peca f916 capa" data-nome="capas-reels/04-indica-quebrada">
+  <div class="s-miolo" style="top:640px;text-align:center">
+    <span class="chip l">Sua vez, Motoca</span>
+    <h1 style="margin-top:50px">Indica o<br><span class="y">rango</span><br>da sua<br>quebrada</h1>
+  </div>
+</section>
+
+<!-- ================= CENAS DO REELS "COMO FUNCIONA" (viram vídeo em montar_reels.sh) ================= -->
+<section class="peca f916 laranja" data-nome="reels-como-funciona/c1">
+  <div class="s-miolo" style="top:520px;text-align:center">
+    <span class="chip">Motoboy · Uber · 99</span>
+    <h1 style="margin-top:50px;font-size:140px">Onde<br>comer<br><span class="y">barato</span><br>no corre?</h1>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="reels-como-funciona/c2">
+  <div class="s-miolo" style="top:560px;text-align:center">
+    <div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div>
+    <h2 style="margin-top:60px;font-size:110px">É um mapa<br>feito pelos<br><span class="y">próprios<br>motoboys</span></h2>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="reels-como-funciona/c3">
+  <div class="s-miolo" style="top:300px;text-align:center">
+    <h2 style="font-size:96px">Lugares <span class="y">perto<br>de você</span>, com<br>nota e comentário</h2>
+  </div>
+  <div class="cel" style="left:305px;top:760px;height:780px">
+    <div class="tela"><div class="bar">MOTOCA<span>FOOD</span></div>
+      <div class="mapa">
+        <div class="pin" style="left:80px;top:80px"><i>🍛</i></div>
+        <div class="pin" style="left:290px;top:60px;background:var(--amarelo)"><i>🛞</i></div>
+        <div class="pin" style="left:200px;top:230px"><i>🥖</i></div>
+        <div class="pin" style="left:320px;top:310px;background:var(--verde)"><i>⛽</i></div>
+        <div class="bolha">🍛 PF da esquina <span class="est">★★★★☆</span><small>"Rango bom e barato"</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="reels-como-funciona/c4">
+  <div class="s-miolo lista" style="top:330px">
+    <h2 style="text-align:center;margin-bottom:30px">Comer, consertar<br>e <span class="y">abastecer</span></h2>
+    <div class="card"><div class="ic amarelo"><span class="emoji">🍛</span></div><div class="t">Restaurantes</div></div>
+    <div class="card"><div class="ic amarelo"><span class="emoji">🥖</span></div><div class="t">Padarias</div></div>
+    <div class="card"><div class="ic amarelo"><span class="emoji">🛞</span></div><div class="t">Borracharias</div></div>
+    <div class="card"><div class="ic amarelo"><span class="emoji">🔧</span></div><div class="t">Oficinas</div></div>
+    <div class="card"><div class="ic amarelo"><span class="emoji">⛽</span></div><div class="t">Postos</div></div>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="reels-como-funciona/c5">
+  <div class="s-miolo" style="top:420px">
+    <h2 style="text-align:center">É só <span class="y">isso:</span></h2>
+    <div class="card" style="margin-top:60px"><div class="ic amarelo" style="font-size:60px">1</div><div class="t">Entra com Google<small>em motocafood.com.br</small></div></div>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">2</div><div class="t">Abre o mapa<small>e acha o lugar mais perto</small></div></div>
+    <div class="card"><div class="ic amarelo" style="font-size:60px">3</div><div class="t">Indica e avalia<small>e ajuda a galera a escolher</small></div></div>
+  </div>
+</section>
+
+<section class="peca f916 amarelo" data-nome="reels-como-funciona/c6">
+  <div class="s-miolo" style="top:600px;text-align:center">
+    <h1 style="color:var(--asfalto);font-size:140px">Uso<br><span class="o">gratuito</span><br>neste primeiro<br>mês</h1>
+  </div>
+</section>
+
+<section class="peca f916 laranja" data-nome="reels-como-funciona/c7">
+  <div class="faixa" style="top:1480px"></div>
+  <div class="s-miolo" style="top:560px;text-align:center">
+    <div class="logo escuro" style="transform:scale(1.5);transform-origin:center top"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div>
+    <div class="url" style="margin-top:150px;font-size:80px">motocafood.com.br</div>
+    <div style="margin-top:50px"><span class="botao">🔗 Link na bio</span></div>
+  </div>
+</section>
+
+<!-- ================= CENAS DO REELS "QUANTO CUSTA O PF" ================= -->
+<section class="peca f916" data-nome="reels-quanto-custa-o-pf/c1">
+  <div class="s-miolo" style="top:600px;text-align:center">
+    <h1 style="font-size:130px">Quanto<br>custa o <span class="y">PF</span><br>em São<br>Paulo?</h1>
+  </div>
+</section>
+
+<section class="peca f916 laranja" data-nome="reels-quanto-custa-o-pf/c2">
+  <div class="s-miolo" style="top:520px;text-align:center">
+    <span class="chip">Média da cidade</span>
+    <div style="font-family:'Inter Display';font-style:italic;font-size:300px;letter-spacing:-12px;line-height:1;margin-top:40px">R$39<span style="font-size:140px">,10</span></div>
+    <p class="txt" style="color:#fff;font-size:40px;margin-top:60px">Fonte: Procon-SP e Dieese, junho de 2026</p>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="reels-quanto-custa-o-pf/c3">
+  <div class="s-miolo" style="top:520px;text-align:center">
+    <h2 style="font-size:104px">22 dias<br>de trampo no mês</h2>
+    <div style="font-size:120px;margin:40px 0" class="emoji">⬇️</div>
+    <h1 style="font-size:150px"><span class="y">+ de R$860</span></h1>
+    <h2 style="font-size:90px;margin-top:20px">só de almoço</h2>
+  </div>
+</section>
+
+<section class="peca f916" data-nome="reels-quanto-custa-o-pf/c4">
+  <div class="s-miolo" style="top:600px;text-align:center">
+    <h1 style="font-size:124px">Mas todo<br>Motoca conhece<br>um lugar<br><span class="y">mais barato</span></h1>
+  </div>
+</section>
+
+<section class="peca f916 amarelo" data-nome="reels-quanto-custa-o-pf/c5">
+  <div class="s-miolo" style="top:500px;text-align:center">
+    <div class="logo"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div>
+    <h2 style="color:var(--asfalto);margin-top:60px;font-size:104px">A galera coloca<br>esses lugares<br><span style="color:var(--laranja)">no mapa</span> — e<br>você acha perto</h2>
+  </div>
+</section>
+
+<section class="peca f916 laranja" data-nome="reels-quanto-custa-o-pf/c6">
+  <div class="faixa" style="top:1480px"></div>
+  <div class="s-miolo" style="top:520px;text-align:center">
+    <div class="logo escuro" style="transform:scale(1.5);transform-origin:center top"><div class="roda"></div><div class="txt">MOTOCA<b>FOOD</b></div></div>
+    <div class="url" style="margin-top:150px;font-size:80px">motocafood.com.br</div>
+    <p class="txt" style="color:#fff;margin-top:30px">Uso gratuito neste primeiro mês</p>
+    <div style="margin-top:40px"><span class="botao">🔗 Link na bio</span></div>
+  </div>
+</section>
+
+</body>
+</html>
