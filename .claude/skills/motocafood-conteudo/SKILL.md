@@ -23,15 +23,15 @@ Nesses casos, avise que a skill é para falar com o Motoca e pergunte se quer se
 |---|---|
 | Para quem | Entregadores de iFood, Rappi e outros apps, e motoristas de Uber, 99 e outros apps |
 | Como entra | Em **motocafood.com.br** → "Sou entregador ou motorista" → entra com o **Google** → completa os dados |
-| Como indica | No próprio site/app: **cadastra o lugar** no mapa, dá **nota** e deixa **comentário**. Nos posts, "comenta o nome e o bairro" vale como engajamento, mas a ação principal é colocar no mapa. |
-| Preço do app | **"Uso gratuito neste primeiro mês"** (texto do site em 18/10/2026). Nunca diga "grátis pra sempre". |
-| Preço da comida | Fale em **"comida barata"** e "a galera indica onde é mais barato". **Não prometa valor fixo** (o "até R$20" do Reels de lançamento não está no site e o PF médio em SP é R$39,10 — Procon-SP/Dieese, jun/2026). |
+| Quem cadastra lugares | **O próprio Motoca**, pela função de cadastro no app/site (cadastra o lugar, dá nota e comentário), **e o dono do Motoca Food**. Nos posts, "comenta o nome e o bairro" vale como engajamento, mas a ação principal é colocar no mapa. |
+| Preço do app | **"Cadastro gratuito"**, sem citar prazo (decisão do dono em 18/10/2026; pode haver cobrança no futuro). Nunca diga "grátis pra sempre". |
+| Preço da comida | **Restaurantes com almoço e jantar até R$20** (o dono cadastra restaurantes nessa faixa). Use "até R$20" só para restaurante; para o resto, "barato". Contraste útil: o PF médio em SP é R$39,10 (Procon-SP/Dieese, jun/2026). |
 | Papel do Motoca | **Agente multiplicador**: indica os lugares bons e baratos e avalia onde foi. "Feito pelos motoboys, para os motoboys." |
 | Cidade foco | **São Paulo (capital)** neste início. Nada de falar como se o app já estivesse em outras cidades. |
 | Causa | "Chegou a hora de o Motoca ter qualidade de vida e ser ouvido!" |
 | Site e perfil | motocafood.com.br · Instagram @motocafood |
 
-O site (motocafood.com.br) é a fonte da verdade: se ele mudar, atualize esta ficha antes de escrever.
+Fonte da verdade: esta ficha (decisões do dono) e o site motocafood.com.br. Se os dois divergirem, vale a ficha, e avise o dono para atualizar o site.
 Fato que não está nesta tabela (nome de lugar, bairro, preço exato, data, número de usuários) **só entra se o usuário informar**.
 Se precisar dele e ele não veio, deixe um marcador visível, como `[NOME DO LUGAR]`, e liste o que falta no final.
 Lugar citado pelo nome tem que **estar no mapa**, e quem indicou só é citado com autorização. Preço achado na internet ou por IA é só pista, não fato.
@@ -85,7 +85,7 @@ Texto na tela, por cartela: `FALA, MOTOCAS!` → `MOTOCA FOOD` → `1º E ÚNICO
 
 Por que funciona: abre com a assinatura, traz um número concreto (R$20), dá ao Motoca um papel ("agente multiplicador") e fecha com causa e assinatura.
 
-**Atenção:** este Reels é anterior ao site. Duas frases dele não batem com a ficha atual: "acesso gratuito" (o site diz "gratuito neste primeiro mês") e "até vinte reais" (o site não promete preço). Use como modelo de **ritmo e tom**, não de fatos. Exemplos alinhados ao site estão em `marketing/instagram/` (Reels "Como funciona" e "Quanto custa o PF").
+Este Reels está alinhado à ficha (cadastro gratuito e rango até R$20 confirmados pelo dono em 18/10/2026). Mais exemplos em `marketing/instagram/` (Reels "Como funciona" e "Quanto custa o PF").
 
 ## O que nunca fazer
 
@@ -93,7 +93,7 @@ Por que funciona: abre com a assinatura, traz um número concreto (R$20), dá ao
 - **Nunca anunciar** restaurante como parceiro, nem prometer desconto nele, antes de ele estar como `Parceiro confirmado` (alguém da equipe falou com o lugar e ele topou).
 - **Nunca falar** como se o app já atendesse fora da cidade de São Paulo.
 - **Nunca prometer** o que ainda é "em breve" (postos, advogados, médicos, contadores) como se já existisse.
-- **Nunca prometer gratuidade além do que o site diz** ("uso gratuito neste primeiro mês"), nem falar em cobrança futura antes de ela ser anunciada no site.
+- **Nunca prometer "grátis pra sempre"** nem citar prazo de gratuidade: o texto é "cadastro gratuito". Nunca falar de cobrança futura antes de ela ser anunciada.
 - **Nunca incentivar** pressa, excesso de velocidade, manobra arriscada, celular na mão pilotando ou furar sinal. "Bora acelerar" é sobre a causa, não sobre a pista. Cenas sempre com capacete.
 - **Nunca atacar concorrentes** pelo nome (iFood, Rappi, Uber, 99 etc.). Fale do que o Motoca Food faz, não do que os outros não fazem.
 - **Nunca tratar o Motoca como coitado** nem usar linguagem de ONG ou de pena. É orgulho, não caridade.

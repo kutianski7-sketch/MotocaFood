@@ -17,7 +17,7 @@ Tudo pronto para colar. Arquivos em `marketing/instagram/` (artes em `artes/`, v
 | **Ter 27** | 9h30 | Carrossel | `carrossel-indica-quebrada/01–05` | Comunidade |
 | **Qua 28** | 15h | Reels (gravar) | Roteiro G4 — "Lugar da semana" | Comunidade |
 | **Qui 29** | 9h30 | Carrossel/Reels | Respostas da caixinha (roteiro G5) | Como funciona |
-| **Sex 30** | 15h | Reels | Lançamento `video/motocafood_reels.mp4` *(só depois de decidir os pontos 1 e 2 da estratégia)* ou Collab | Causa |
+| **Sex 30** | 15h | Reels | Lançamento `video/motocafood_reels.mp4` (liberado: grátis e até R$20 confirmados) | Causa |
 | Sáb 31 | 11h | Stories | "Lugar da semana" + enquete | Comunidade |
 | **Dom 01** | 22h | Reels (gravar) | Roteiro G6 — Resposta a comentário | Comunidade |
 
@@ -31,13 +31,13 @@ Stories **todo dia**: no mínimo 1 enquete ou caixinha + 1 repost de Motoca que 
 ```
 Motoboy, Uber, 99: onde comer barato no corre? 🛵🍛
 
-O Motoca Food é um mapa de comida barata feito pelos próprios motoboys e motoristas de app. Restaurante, padaria, borracharia, oficina e posto — tudo indicado e avaliado pela galera que roda o dia todo.
+O Motoca Food é um mapa de comida barata feito pelos próprios motoboys e motoristas de app. Restaurante com almoço e jantar até R$20, padaria, borracharia, oficina e posto — tudo indicado e avaliado pela galera que roda o dia todo.
 
 1️⃣ Entra com o Google em motocafood.com.br
 2️⃣ Abre o mapa e acha o lugar mais perto
 3️⃣ Indica e avalia pra ajudar o parça
 
-Uso gratuito neste primeiro mês. Link na bio 👆
+Cadastro gratuito. Link na bio 👆
 Manda pro parça que gasta demais no almoço 😅
 
 #motoca #motoboy #entregador #motoboysp #motocafood
@@ -50,7 +50,7 @@ Comida barata perto de você, indicada por quem entende: outro Motoca. 🗺️
 
 Arrasta pro lado e vê como funciona o Motoca Food em 3 passos 👉
 
-Feito pra entregador de iFood, Rappi e outros apps, e pra motorista de Uber, 99 e outros. Uso gratuito neste primeiro mês — motocafood.com.br (link na bio).
+Feito pra entregador de iFood, Rappi e outros apps, e pra motorista de Uber, 99 e outros. Cadastro gratuito — motocafood.com.br (link na bio).
 
 Salva esse post e manda pro grupo da firma 🛵
 
@@ -64,7 +64,7 @@ R$39,10. Essa é a média do prato feito em São Paulo (Procon-SP/Dieese, junho 
 
 Pra quem come na rua 22 dias por mês, é mais de R$860 só de almoço.
 
-Mas todo Motoca conhece aquele lugar mais barato — e no Motoca Food a galera coloca esses lugares no mapa pra todo mundo achar perto.
+No mapa do Motoca Food tem restaurante com almoço e jantar até R$20, indicado pela galera e perto de você.
 
 Qual é o PF mais barato que você conhece? Comenta o nome e o bairro 👇
 motocafood.com.br — link na bio
@@ -94,7 +94,7 @@ Pergunta séria: qual é o rango mais barato da sua quebrada? 🍛
 
 Todo Motoca tem aquele lugar que salva o dia. Coloca ele no mapa do Motoca Food e ajuda um parça a gastar menos — leva 1 minuto.
 
-Comenta aqui o NOME e o BAIRRO 👇 e cadastra em motocafood.com.br (link na bio). Uso gratuito neste primeiro mês.
+Comenta aqui o NOME e o BAIRRO 👇 e cadastra em motocafood.com.br (link na bio). Cadastro gratuito.
 
 #motoca #comidabarata #pfbarato #saopaulo #motocafood
 ```
@@ -121,7 +121,7 @@ Regras: vertical, 10–25 s, **texto do gancho na tela no 1º segundo**, legenda
 **G3 — "Cadastro em 30 segundos" (Seg 26)** — gravação de tela do seu celular
 - Grave a tela: abrir motocafood.com.br → "Sou entregador ou motorista" → entrar com Google → mapa aparecendo.
 - Texto: *"Cadastro no Motoca Food em 30 segundos ⏱️"*. **Corte a parte com seu e-mail/dados**.
-- Legenda: `Sem enrolação: entra com o Google e já tá no mapa 🗺️ Uso gratuito neste primeiro mês. Link na bio. #motoca #motoboy #motoristadeaplicativo #entregador #motocafood`
+- Legenda: `Sem enrolação: entra com o Google e já tá no mapa 🗺️ Cadastro gratuito. Link na bio. #motoca #motoboy #motoristadeaplicativo #entregador #motocafood`
 
 **G4 — "Lugar da semana" (Qua 28)**
 - Escolha a indicação mais bem avaliada da semana no mapa (com autorização de quem indicou para citar o nome).
@@ -142,5 +142,4 @@ Regras: vertical, 10–25 s, **texto do gancho na tela no 1º segundo**, legenda
 - **Enquete:** "Quanto você gasta no almoço?" (Até R$20 / Mais de R$20) · "Motoboy ou motorista?" · "Já comeu num lugar indicado pela galera?"
 - **Caixinha:** "Qual lugar barato a gente precisa colocar no mapa?"
 - **Link:** sticker de link `motocafood.com.br/?utm_source=instagram&utm_medium=stories` com o texto "Entra no mapa".
-- **Contagem:** "Fim do mês grátis" (se quiser reforçar o "gratuito neste primeiro mês" — confirme a data de término antes).
 - **Repost:** todo Motoca que marcar @motocafood → repostar e agradecer.

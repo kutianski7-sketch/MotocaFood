@@ -14,7 +14,7 @@
 | Tipo de conta | **Profissional** (Criador ou Empresa) — libera Insights, agendamento e botão de contato. Grátis. |
 | Nome (campo pesquisável) | `Motoca Food | Comida barata motoboy` — o campo "Nome" entra na busca do Instagram, então leva palavra-chave. |
 | Categoria | Aplicativo / App |
-| Bio | `🛵 Comida barata pra quem roda o dia todo`<br>`📍 Mapa feito pelos próprios motoboys: rango, borracharia, oficina e posto`<br>`🚗 Entregador e motorista de app`<br>`👇 Grátis neste 1º mês` |
+| Bio | `🛵 Comida barata pra quem roda o dia todo`<br>`📍 Mapa feito pelos próprios motoboys: rango, borracharia, oficina e posto`<br>`🚗 Entregador e motorista de app`<br>`🍛 Rango até R$20 · cadastro grátis 👇` |
 | Link | `https://motocafood.com.br/?utm_source=instagram&utm_medium=bio` (o "utm" deixa você ver no site quantos vieram do Instagram) |
 | Destaques | **Como funciona** (stories 01–05) · **Indica** · **Dúvidas** (respostas da caixinha) · **Lugares** (indicações da galera) |
 | Fixados (3) | 1. Reels "Como funciona" · 2. Carrossel "Como funciona" · 3. Reels de lançamento |
@@ -85,7 +85,7 @@ O Instagram pune automação. Isto aqui é feito à mão, pelo celular:
 Alvo: **microcriadores motoboys/motoristas de 2 mil a 100 mil seguidores** (respondem mais e têm público fiel). Procure em `#motoboy`, `#vidademotoboy`, `#entregador` e na busca "motoboy" → aba Contas.
 
 Mensagem (direct):
-> Fala, [nome]! Curto muito teu conteúdo do corre. A gente lançou o Motoca Food, um mapa onde os próprios motoboys indicam lugar barato pra comer, borracharia, oficina e posto — de graça neste primeiro mês. Bora fazer um Reels em collab? Tu mostra teu rango/borracheiro de confiança e a gente coloca no mapa com teu nome. Sem compromisso!
+> Fala, [nome]! Curto muito teu conteúdo do corre. A gente lançou o Motoca Food, um mapa onde os próprios motoboys indicam lugar barato pra comer, borracharia, oficina e posto — e o cadastro é grátis. Bora fazer um Reels em collab? Tu mostra teu rango/borracheiro de confiança e a gente coloca no mapa com teu nome. Sem compromisso!
 
 ### Fora do Instagram (mesmo conteúdo, custo zero)
 - **TikTok e Kwai:** poste os mesmos Reels (o Kwai é muito usado por motoboys). Arquivo sem marca d'água.
@@ -111,8 +111,8 @@ Primeira meta (hipótese, ajuste depois de 2 semanas): **1 Reels por semana pass
 
 ## 7. Regras de conteúdo (valem para todo post)
 
-- Prometer só o que está no site: **"uso gratuito neste primeiro mês"** (não "grátis para sempre").
-- Não citar preço fixo (ex.: "PF a R$20") como promessa do app — o mapa mostra o que a galera indica.
+- **"Cadastro gratuito"**, sem citar prazo (decisão do dono em 18/10/2026; a cobrança, se vier, será anunciada no futuro). Nunca "grátis para sempre".
+- **"Até R$20"** vale para os **restaurantes** (almoço e jantar). Não estender a oficinas, postos etc.
 - Não inventar número de usuários, lugares ou cidades.
 - Não usar logo do iFood, Uber, 99 ou Rappi, nem sugerir parceria com eles. Citar os nomes para dizer **para quem é** está ok.
 - Nada de pressa, empinar, celular na mão pilotando. Cena com moto = capacete.
@@ -120,9 +120,9 @@ Primeira meta (hipótese, ajuste depois de 2 semanas): **1 Reels por semana pass
 
 ---
 
-## 8. Pontos para você decidir (encontrados ontem à noite)
+## 8. Decisões do dono (18/10/2026)
 
-1. **Grátis "neste primeiro mês" ou "sempre"?** O site diz *"Uso gratuito neste primeiro mês"*; o Reels de lançamento diz *"O acesso é gratuito pra você Motoca e pros parceiros"*. Todo o material novo segue o site. Se o lançamento for ao ar, vale ajustar a legenda.
-2. **"Até R$20":** o Reels de lançamento promete almoço e jantar por até R$20; o site não fala em preço e a pesquisa do Procon mostra PF médio de R$39,10 em SP. O material novo fala em "comida barata" e "a galera indica onde é mais barato".
-3. **O @motocafood existe e é seu?** Não consegui abrir o Instagram daqui (bloqueio de acesso automático). Confirme o @ — todas as artes usam **@motocafood**.
-4. **Motoristas de carro também:** o site é para "entregadores e motoristas". As artes falam com os dois; o tom continua "Motoca".
+1. **Cadastro gratuito, sem prazo.** O site ainda diz "Uso gratuito neste primeiro mês" — **atualizar o texto do site** para "Cadastro gratuito" para bater com os posts.
+2. **"Até R$20" continua** para restaurantes (almoço e jantar).
+3. **Quem cadastra lugares:** o próprio Motoca (função no app) **e** o dono.
+4. **@motocafood é o perfil oficial.**

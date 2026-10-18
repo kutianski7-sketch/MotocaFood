@@ -42,11 +42,11 @@ Fatos e tom de voz: skill `motocafood-conteudo` (ficha da marca alinhada ao site
 
 - Peças criadas: carrosséis "Como funciona" (7), "Indica a quebrada" (5), "5 jeitos de gastar menos no corre" (6); stories de apresentação (6); 4 capas; Reels "Como funciona" (19 s) e "Quanto custa o PF" (16 s, dado do Procon-SP/Dieese).
 - Calendário 19/out–01/nov com legendas prontas e 6 roteiros para gravar.
-- Achado: o site diz "uso gratuito **neste primeiro mês**" e quem cadastra os lugares é o próprio Motoca — a ficha da marca foi corrigida.
+- Decisões do dono (18/10/2026): "cadastro gratuito" sem prazo, "até R$20" para restaurantes, lugares cadastrados pelo Motoca no app e pelo dono.
 
 ## O que nunca fazer
 
-- **Nunca prometer** o que o site não promete (gratuidade permanente, preço fixo de refeição, cidades, número de usuários).
+- **Nunca prometer** o que a ficha da marca não diz (gratuidade permanente ou com prazo, "até R$20" fora de restaurante, cidades, número de usuários).
 - **Nunca usar logo** de iFood, Uber, 99 ou Rappi, nem sugerir parceria com eles.
 - **Nunca usar mais de 5 hashtags** nem hashtag sem relação com o post.
 - **Nunca mostrar** rosto, placa ou dado pessoal de alguém sem autorização; em gravação de tela, cortar e-mail e dados.
